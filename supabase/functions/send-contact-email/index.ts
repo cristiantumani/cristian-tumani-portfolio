@@ -57,18 +57,9 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     // Check if N8N webhook URL is available
-    const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
+    const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL") || "https://cristiantumani.app.n8n.cloud/webhook/3f8ca679-e0bd-406a-a299-8f5ceb253d45";
     
-    if (!webhookUrl) {
-      console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
-      return new Response(
-        JSON.stringify({ error: "Email service not configured" }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
+    console.log("Using webhook URL:", webhookUrl);
 
     console.log("Sending notification to n8n webhook:", webhookUrl);
     

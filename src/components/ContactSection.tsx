@@ -23,7 +23,7 @@ const ContactSection = () => {
     
     try {
       console.log('Calling Supabase function...');
-      const { data, error } = await supabase.functions.invoke('test-contact', {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
       
