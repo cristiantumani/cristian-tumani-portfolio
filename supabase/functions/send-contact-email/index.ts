@@ -58,17 +58,15 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Check if N8N webhook URL is available
     const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
-    console.log("=== WEBHOOK URL CHECK ===");
-    console.log("Raw webhook URL:", webhookUrl);
-    console.log("Webhook URL type:", typeof webhookUrl);
-    console.log("Webhook URL length:", webhookUrl?.length || 0);
-    console.log("Is webhook URL truthy:", !!webhookUrl);
-    console.log("========================");
     
+    // Simple test: return early with webhook URL info
     if (!webhookUrl) {
       console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
       return new Response(
-        JSON.stringify({ error: "Email service not configured" }),
+        JSON.stringify({ 
+          error: "Email service not configured",
+          debug: "webhook URL missing"
+        }),
         {
           status: 500,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -76,58 +74,16 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    console.log("Sending notification to n8n webhook:", webhookUrl);
-    
-    const payload = {
-      name,
-      email,
-      subject,
-      message,
-      timestamp: new Date().toISOString(),
-      to: "cristiantumani@gmail.com"
-    };
-    
-    console.log("Payload being sent:", JSON.stringify(payload));
-    
-    try {
-      console.log("About to make fetch request to:", webhookUrl);
-      
-      // Send notification to n8n webhook
-      const webhookResponse = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      console.log("Fetch completed. Response status:", webhookResponse.status);
-      console.log("Response status text:", webhookResponse.statusText);
-      console.log("Response headers:", Object.fromEntries(webhookResponse.headers));
-
-      if (!webhookResponse.ok) {
-        const errorBody = await webhookResponse.text();
-        console.error("n8n webhook error response body:", errorBody);
-        const errorMessage = `n8n webhook failed with status: ${webhookResponse.status} (${webhookResponse.statusText}) - ${errorBody}`;
-        console.error("Full error message:", errorMessage);
-        throw new Error(errorMessage);
-      }
-
-      const webhookResult = await webhookResponse.text();
-      console.log("n8n webhook success response:", webhookResult);
-      
-    } catch (fetchError: any) {
-      console.error("Fetch error occurred:", fetchError);
-      console.error("Fetch error name:", fetchError.name);
-      console.error("Fetch error message:", fetchError.message);
-      console.error("Fetch error stack:", fetchError.stack);
-      throw fetchError;
-    }
-
+    // Test: Just return success without calling webhook for now
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Contact form submitted successfully" 
+        message: "Contact form received successfully",
+        debug: {
+          webhookUrlSet: !!webhookUrl,
+          webhookUrlLength: webhookUrl.length,
+          formData: { name, email, subject }
+        }
       }),
       {
         status: 200,
