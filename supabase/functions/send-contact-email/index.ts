@@ -100,8 +100,8 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending confirmation email to sender");
     
     // Send confirmation email to the person who contacted you
-    await resend.emails.send({
-      from: "Cristian Tumani <onboarding@resend.dev>",
+    const confirmationEmailResponse = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
       to: [email],
       subject: "Thank you for reaching out!",
       html: `
@@ -115,7 +115,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Confirmation email sent successfully");
+    console.log("Confirmation email sent successfully:", confirmationEmailResponse);
 
     return new Response(
       JSON.stringify({ 
