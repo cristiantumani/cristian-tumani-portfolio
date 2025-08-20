@@ -56,33 +56,14 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Check if N8N webhook URL is available
-    const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
-    
-    // Simple test: return early with webhook URL info
-    if (!webhookUrl) {
-      console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
-      return new Response(
-        JSON.stringify({ 
-          error: "Email service not configured",
-          debug: "webhook URL missing"
-        }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
-
-    // Test: Just return success without calling webhook for now
+    // Ultra-simple test - no environment variables
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Contact form received successfully",
+        message: "Contact form received successfully - minimal test",
         debug: {
-          webhookUrlSet: !!webhookUrl,
-          webhookUrlLength: webhookUrl.length,
-          formData: { name, email, subject }
+          formData: { name, email, subject },
+          timestamp: new Date().toISOString()
         }
       }),
       {
