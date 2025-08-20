@@ -11,7 +11,7 @@ const HeroSection = () => {
             </h1>
             
             <div className="bg-hero-gradient bg-clip-text text-transparent font-heading font-semibold text-xl lg:text-2xl mb-6">
-              Senior Product Manager | International Experience | From 0 to Launch
+              Product Lead | International Experience | From 0 to Launch
             </div>
             
             <p className="font-body text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">Adaptable leader with 13+ years building digital products across three countries. Passionate about transforming ideas into impactful solutions that scale globally.</p>
