@@ -6,47 +6,33 @@ const ProjectsSection = () => {
       title: "Global E-commerce Platform",
       company: "adidas",
       category: "E-commerce • Mobile",
-      description: "Led the development of a unified e-commerce platform serving 8 European markets with AI-driven personalization and mobile-first design.",
+      description: "Led the development of a new Mobile App platform serving +20 countries accross the globe.",
       impact: [
-        { icon: Users, label: "50M+ Users", value: "Across Europe" },
-        { icon: TrendingUp, label: "35% Increase", value: "Conversion Rate" },
-        { icon: Globe, label: "8 Markets", value: "Simultaneous Launch" }
+        { icon: Users, label: "4M+ Monthly Active Users", value: "Worldwide" },
+        { icon: TrendingUp, label: "500M Revenue", value: "Revenue" },
+        { icon: Globe, label: "+20 Markets", value: "Simultaneous Launch" }
       ],
-      technologies: ["React Native", "Machine Learning", "A/B Testing", "Analytics"],
-      challenge: "Create a unified shopping experience across diverse European markets with different languages, currencies, and consumer behaviors.",
-      solution: "Developed a modular platform with market-specific customization while maintaining a consistent core experience. Implemented AI-driven product recommendations and dynamic pricing strategies.",
-      results: "Successfully launched in 8 markets within 6 months, achieving 35% improvement in conversion rates and 50% reduction in bounce rate."
+      technologies: ["iOS", "Android", "A/B Testing", "Analytics"],
+      challenge: "Create a new Mobile App focused on niche of Sneaker fans to compete with Nike Sneakers App across thw world, currencies, and consumer behaviors.",
+      solution: "Developed a Mobile App rooted in adidas culture fostering not only the best products but User Experience and relevant content while maintaining a consistent core experience.",
+      results: "Successfully launched in +20 markets within the first 6 months, achieving an incredible mark of 6 millions installs and 4M monthly active users."
     },
     {
       title: "Airline Digital Transformation",
       company: "LATAM Airlines",
       category: "Travel • Mobile App",
-      description: "Spearheaded the digital transformation of booking and customer service experiences for Latin America's largest airline group.",
+      description: "Improve Checkin experience in LATAM Airlines mobile app so to increase adoption of Checkin.",
       impact: [
         { icon: Users, label: "30M+ Travelers", value: "Annual Users" },
-        { icon: TrendingUp, label: "40% Reduction", value: "Support Tickets" },
-        { icon: Globe, label: "18 Countries", value: "Service Coverage" }
+        { icon: TrendingUp, label: "80% Reduction", value: "Time" },
+        { icon: Globe, label: "All LATAM Airlines Markets", value: "Service Coverage" }
       ],
-      technologies: ["Flutter", "Cloud Architecture", "API Integration", "Customer Analytics"],
-      challenge: "Modernize legacy booking systems while maintaining service reliability for millions of travelers across 18 countries.",
-      solution: "Implemented a phased migration strategy with extensive testing and gradual rollout. Created self-service capabilities and intelligent routing for customer support.",
-      results: "Reduced customer support tickets by 40% while improving user satisfaction scores from 3.2 to 4.6 stars across app stores."
+      technologies: ["iOS", "Android", "API Integration", "Customer Analytics"],
+      challenge: "Replace legacy checkin systems while maintaining service reliability for millions of travelers all LATAM Airlines Markets.",
+      solution: "Implemented a Native checkin system optimised for mobile experience and reliability.",
+      results: "Reduced time from start to finish checkin in more than 90% taking it from minutes to just a few seconds."
     },
-    {
-      title: "Fintech Startup MVP",
-      company: "Independent",
-      category: "Fintech • Startup",
-      description: "Built and launched a financial technology product from concept to market, focusing on cross-border payments for Latin American markets.",
-      impact: [
-        { icon: Users, label: "10K+ Users", value: "First 6 Months" },
-        { icon: TrendingUp, label: "€2M+", value: "Transaction Volume" },
-        { icon: Globe, label: "5 Countries", value: "Market Coverage" }
-      ],
-      technologies: ["React", "Blockchain", "Payment APIs", "Compliance"],
-      challenge: "Enter the competitive fintech market with limited resources while ensuring regulatory compliance across multiple jurisdictions.",
-      solution: "Focused on underserved market segment with MVP approach. Built strategic partnerships with local banks and leveraged blockchain for transparency and cost reduction.",
-      results: "Achieved product-market fit within 6 months, processing over €2M in transactions and securing Series A funding."
-    }
+    
   ];
 
   return (
