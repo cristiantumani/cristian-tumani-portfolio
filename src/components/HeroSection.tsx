@@ -1,8 +1,6 @@
-const profilePhoto = "/lovable-uploads/9f406ea7-22b3-4aa7-ba5b-4df13ae5cb65.png";
-
+import profilePhoto from "@/assets/profile-photo.jpg";
 const HeroSection = () => {
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-section-gradient pt-20">
+  return <section id="home" className="min-h-screen flex items-center justify-center bg-section-gradient pt-20">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
@@ -16,23 +14,18 @@ const HeroSection = () => {
               Senior Product Manager | International Experience | From 0 to Launch
             </div>
             
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-              Adaptable leader with 8+ years building digital products across three countries. 
-              Passionate about transforming ideas into impactful solutions that scale globally.
-            </p>
+            <p className="font-body text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">Adaptable leader with 13+ years building digital products across three countries. Passionate about transforming ideas into impactful solutions that scale globally.</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-hero-gradient text-primary-foreground font-body font-medium px-8 py-3 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-105"
-              >
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({
+              behavior: 'smooth'
+            })} className="bg-hero-gradient text-primary-foreground font-body font-medium px-8 py-3 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-105">
                 Let's Connect
               </button>
               
-              <button 
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border border-border bg-card text-foreground font-body font-medium px-8 py-3 rounded-lg hover:bg-secondary transition-all duration-300"
-              >
+              <button onClick={() => document.getElementById('projects')?.scrollIntoView({
+              behavior: 'smooth'
+            })} className="border border-border bg-card text-foreground font-body font-medium px-8 py-3 rounded-lg hover:bg-secondary transition-all duration-300">
                 View Projects
               </button>
             </div>
@@ -42,11 +35,7 @@ const HeroSection = () => {
           <div className="flex-shrink-0 animate-float">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden shadow-hero">
-                <img 
-                  src={profilePhoto} 
-                  alt="Cristian Tumani - Senior Product Manager"
-                  className="w-full h-full object-cover"
-                />
+                <img src={profilePhoto} alt="Cristian Tumani - Senior Product Manager" className="w-full h-full object-cover" />
               </div>
               <div className="absolute inset-0 rounded-full bg-hero-gradient opacity-10"></div>
             </div>
@@ -54,8 +43,6 @@ const HeroSection = () => {
           
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
