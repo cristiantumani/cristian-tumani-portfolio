@@ -3,55 +3,55 @@ import { Building2, Plane, ShoppingBag, Rocket } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
-      icon: Plane,
-      company: "LATAM Airlines",
-      role: "Senior Product Manager",
-      period: "2022 - Present",
-      location: "Santiago, Chile",
-      description: "Leading digital transformation initiatives for Latin America's largest airline, focusing on customer experience optimization and operational efficiency.",
+      icon: Rocket,
+      company: "Lokalise",
+      role: "Group Product Manager",
+      period: "Jan 2021 - Apr 2022",
+      location: "Barcelona, Spain - Amsterdam, Netherlands",
+      description: "Led a team of 3 Product Managers to revolutionize localization with AI-driven solutions, reducing costs by up to 30% while scaling the core platform globally.",
       achievements: [
-        "Launched mobile-first booking platform serving 50M+ customers",
-        "Increased conversion rates by 35% through UX optimization",
-        "Led cross-border team of 15 engineers and designers"
+        "Built AI-powered Marketing Content solution from scratch with integrations to Shopify, Contentful, Webflow, and HubSpot",
+        "Successfully onboarded 150+ customers in the first month of product launch",
+        "Conducted 100+ customer interviews driving strategic product decisions"
       ]
     },
     {
       icon: ShoppingBag,
       company: "adidas",
-      role: "Product Manager",
-      period: "2020 - 2022",
+      role: "Director of Product Management",
+      period: "Dec 2021 - Jan 2022",
       location: "Amsterdam, Netherlands",
-      description: "Drove product strategy for e-commerce platforms across European markets, focusing on personalization and mobile commerce.",
+      description: "Transformed the adidas CONFIRMED app into the world's leading sneakerhead community platform, driving massive growth and revenue impact.",
       achievements: [
-        "Implemented AI-driven recommendation system",
-        "Managed product roadmap for 8 European markets",
-        "Collaborated with global teams across 12 time zones"
+        "Scaled app to 6M+ installs and 4M MAUs across US, EU, and China",
+        "Supported €500M+ revenue targets within the first year",
+        "Led and coached a high-performing team of 4 Product Owners"
       ]
     },
     {
-      icon: Rocket,
-      company: "Tech Startups",
-      role: "Product Lead",
-      period: "2018 - 2020",
-      location: "Barcelona, Spain",
-      description: "Built products from ground up in high-growth startup environment, wearing multiple hats from strategy to execution.",
+      icon: ShoppingBag,
+      company: "adidas",
+      role: "Senior Product Manager - Mobile App",
+      period: "Aug 2019 - Dec 2021",
+      location: "Amsterdam, Netherlands",
+      description: "Created and launched the adidas CONFIRMED app from concept to global rollout in 20+ countries, establishing the foundation for the brand's mobile community strategy.",
       achievements: [
-        "Took 2 products from concept to market launch",
-        "Established product development processes",
-        "Scaled team from 3 to 20 members"
+        "Built product from zero to live launch in 20+ countries",
+        "Managed complete product development lifecycle and team formation",
+        "Orchestrated successful app launches across US and EU markets"
       ]
     },
     {
-      icon: Building2,
-      company: "Consulting & Early Career",
-      role: "Product Consultant",
-      period: "2016 - 2018",
+      icon: Plane,
+      company: "LATAM Airlines Group",
+      role: "Senior Product Owner - Mobile App",
+      period: "Mar 2018 - Jun 2019",
       location: "Santiago, Chile",
-      description: "Provided product strategy consulting to various companies while building foundational skills in product management.",
+      description: "Spearheaded the strategic consolidation of LAN and TAM mobile apps into a unified LATAM experience, serving millions of travelers across Latin America.",
       achievements: [
-        "Consulted for 15+ companies across industries",
-        "Developed expertise in user research and data analysis",
-        "Built network across Latin American tech ecosystem"
+        "Successfully migrated 5 million users from TAM to unified LATAM mobile app",
+        "Redesigned check-in process reducing completion time from 1.2 minutes to under 10 seconds",
+        "Increased mobile check-in participation by 10% company-wide"
       ]
     }
   ];
