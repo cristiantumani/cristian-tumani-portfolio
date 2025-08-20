@@ -11,7 +11,6 @@ const ExperienceSection = () => {
       description: "Leading a high-performing team of 3 Product Managers to revolutionize the localization industry - led development of new products from zero to launch using cutting-edge AI solutions, achieving cost reductions while scaling our platform to serve global enterprises.",
       achievements: [
         "Built AI-powered Marketing Content solution from scratch with integrations such as Shopify, Contentful, Webflow, and HubSpot",
-  ,
         "Actively participate and conducted 100+ customer interviews driving strategic product decisions"
       ]
     },
