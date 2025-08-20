@@ -8,7 +8,7 @@ const ExperienceSection = () => {
       role: "Group Product Manager",
       period: "May 2022 - Present",
       location: "Barcelona, Spain - Amsterdam, Netherlands",
-      description: "Led a team of 3 Product Managers to revolutionize localization with AI-driven solutions, reducing costs by up to 30% while scaling the core platform globally.",
+      description: "Leading a high-performing team of 3 Product Managers to revolutionize the localization industry with cutting-edge AI solutions, achieving unprecedented cost reductions while scaling our platform to serve global enterprises.",
       achievements: [
         "Built AI-powered Marketing Content solution from scratch with integrations to Shopify, Contentful, Webflow, and HubSpot",
         "Successfully onboarded 150+ customers in the first month of product launch",
@@ -21,7 +21,7 @@ const ExperienceSection = () => {
       role: "Director of Product Management",
       period: "Dec 2021 - Jan 2022",
       location: "Amsterdam, Netherlands",
-      description: "Transformed the adidas CONFIRMED app into the world's leading sneakerhead community platform, driving massive growth and revenue impact.",
+      description: "Orchestrated the transformation of adidas CONFIRMED into the world's premier sneakerhead community platform, delivering exceptional growth metrics and establishing new standards for brand engagement in the digital space.",
       achievements: [
         "Scaled app to 6M+ installs and 4M MAUs across US, EU, and China",
         "Supported €500M+ revenue targets within the first year",
@@ -34,7 +34,7 @@ const ExperienceSection = () => {
       role: "Senior Product Manager - Mobile App",
       period: "Aug 2019 - Dec 2021",
       location: "Amsterdam, Netherlands",
-      description: "Created and launched the adidas CONFIRMED app from concept to global rollout in 20+ countries, establishing the foundation for the brand's mobile community strategy.",
+      description: "Pioneered the creation and launch of the revolutionary adidas CONFIRMED app from zero to global phenomenon, establishing the blueprint for community-driven commerce across 20+ international markets.",
       achievements: [
         "Built product from zero to live launch in 20+ countries",
         "Managed complete product development lifecycle and team formation",
@@ -47,7 +47,7 @@ const ExperienceSection = () => {
       role: "Senior Product Owner - Mobile App",
       period: "Mar 2018 - Jun 2019",
       location: "Santiago, Chile",
-      description: "Spearheaded the strategic consolidation of LAN and TAM mobile apps into a unified LATAM experience, serving millions of travelers across Latin America.",
+      description: "Masterfully executed the strategic consolidation of two major airline mobile platforms into a seamless, unified LATAM experience, delivering enhanced user journeys for millions of travelers across Latin America's most demanding aviation market.",
       achievements: [
         "Successfully migrated 5 million users from TAM to unified LATAM mobile app",
         "Redesigned check-in process reducing completion time from 1.2 minutes to under 10 seconds",
