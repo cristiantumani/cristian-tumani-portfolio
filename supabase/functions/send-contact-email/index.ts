@@ -84,28 +84,40 @@ const handler = async (req: Request): Promise<Response> => {
     
     console.log("Payload being sent:", JSON.stringify(payload));
     
-    // Send notification to n8n webhook
-    const webhookResponse = await fetch(webhookUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    try {
+      console.log("About to make fetch request to:", webhookUrl);
+      
+      // Send notification to n8n webhook
+      const webhookResponse = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    console.log("Webhook response status:", webhookResponse.status);
-    console.log("Webhook response headers:", Object.fromEntries(webhookResponse.headers));
+      console.log("Fetch completed. Response status:", webhookResponse.status);
+      console.log("Response status text:", webhookResponse.statusText);
+      console.log("Response headers:", Object.fromEntries(webhookResponse.headers));
 
-    if (!webhookResponse.ok) {
-      const errorBody = await webhookResponse.text();
-      console.error("n8n webhook error response:", errorBody);
-      const errorMessage = `n8n webhook failed with status: ${webhookResponse.status} - ${errorBody}`;
-      console.error("Full error message:", errorMessage);
-      throw new Error(errorMessage);
+      if (!webhookResponse.ok) {
+        const errorBody = await webhookResponse.text();
+        console.error("n8n webhook error response body:", errorBody);
+        const errorMessage = `n8n webhook failed with status: ${webhookResponse.status} (${webhookResponse.statusText}) - ${errorBody}`;
+        console.error("Full error message:", errorMessage);
+        throw new Error(errorMessage);
+      }
+
+      const webhookResult = await webhookResponse.text();
+      console.log("n8n webhook success response:", webhookResult);
+      
+    } catch (fetchError: any) {
+      console.error("Fetch error occurred:", fetchError);
+      console.error("Fetch error name:", fetchError.name);
+      console.error("Fetch error message:", fetchError.message);
+      console.error("Fetch error stack:", fetchError.stack);
+      throw fetchError;
     }
-
-    const webhookResult = await webhookResponse.text();
-    console.log("n8n webhook success response:", webhookResult);
 
     return new Response(
       JSON.stringify({ 
