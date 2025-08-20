@@ -73,20 +73,24 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending notification to n8n webhook:", webhookUrl);
     
+    const payload = {
+      name,
+      email,
+      subject,
+      message,
+      timestamp: new Date().toISOString(),
+      to: "cristiantumani@gmail.com"
+    };
+    
+    console.log("Payload being sent:", JSON.stringify(payload));
+    
     // Send notification to n8n webhook
     const webhookResponse = await fetch(webhookUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name,
-        email,
-        subject,
-        message,
-        timestamp: new Date().toISOString(),
-        to: "cristiantumani@gmail.com"
-      }),
+      body: JSON.stringify(payload),
     });
 
     console.log("Webhook response status:", webhookResponse.status);
@@ -95,11 +99,13 @@ const handler = async (req: Request): Promise<Response> => {
     if (!webhookResponse.ok) {
       const errorBody = await webhookResponse.text();
       console.error("n8n webhook error response:", errorBody);
-      throw new Error(`n8n webhook failed with status: ${webhookResponse.status} - ${errorBody}`);
+      const errorMessage = `n8n webhook failed with status: ${webhookResponse.status} - ${errorBody}`;
+      console.error("Full error message:", errorMessage);
+      throw new Error(errorMessage);
     }
 
     const webhookResult = await webhookResponse.text();
-    console.log("n8n webhook response:", webhookResult);
+    console.log("n8n webhook success response:", webhookResult);
 
     return new Response(
       JSON.stringify({ 
@@ -116,10 +122,14 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
+    console.error("Error name:", error.name);
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
     return new Response(
       JSON.stringify({ 
         error: "Failed to send email",
-        details: error.message 
+        details: error.message,
+        type: error.name
       }),
       {
         status: 500,
