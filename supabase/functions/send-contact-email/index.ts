@@ -101,18 +101,27 @@ const handler = async (req: Request): Promise<Response> => {
     
     try {
       // Send confirmation email to the person who contacted you
+      // Note: Using onboarding@resend.dev may have limitations for external emails
+      // Consider setting up a custom domain in Resend for production use
       const confirmationEmailResponse = await resend.emails.send({
-        from: "Portfolio Contact <onboarding@resend.dev>",
+        from: "Cristian Tumani Portfolio <onboarding@resend.dev>",
         to: [email],
+        reply_to: "cristiantumani@gmail.com", // Add reply-to for better deliverability
         subject: "Thank you for reaching out!",
         html: `
-          <h1>Thank you for contacting me, ${name}!</h1>
-          <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
-          <p>Here's a copy of your message for your records:</p>
-          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
-            ${message.replace(/\n/g, '<br>')}
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h1 style="color: #333;">Thank you for contacting me, ${name}!</h1>
+            <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
+            <p>Here's a copy of your message for your records:</p>
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #007bff;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+            <p>Best regards,<br><strong>Cristian Tumani</strong><br>Product Lead</p>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+            <p style="color: #666; font-size: 12px;">
+              This is an automated confirmation email. Please do not reply to this email.
+            </p>
           </div>
-          <p>Best regards,<br>Cristian Tumani<br>Product Lead</p>
         `,
       });
 
