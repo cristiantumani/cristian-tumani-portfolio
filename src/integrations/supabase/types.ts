@@ -14,42 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      events: {
-        Row: {
-          created_at: string
-          created_by: string
-          description: string | null
-          event_date: string
-          event_time: string | null
-          id: string
-          is_all_day: boolean | null
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          created_by: string
-          description?: string | null
-          event_date: string
-          event_time?: string | null
-          id?: string
-          is_all_day?: boolean | null
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          created_by?: string
-          description?: string | null
-          event_date?: string
-          event_time?: string | null
-          id?: string
-          is_all_day?: boolean | null
-          title?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
