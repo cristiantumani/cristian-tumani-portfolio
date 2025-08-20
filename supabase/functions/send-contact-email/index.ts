@@ -1,3 +1,4 @@
+
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
@@ -17,12 +18,16 @@ interface ContactFormData {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log(`Received ${req.method} request to send-contact-email function`);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
+    console.log("Handling CORS preflight request");
     return new Response(null, { headers: corsHeaders });
   }
 
   if (req.method !== "POST") {
+    console.log(`Method ${req.method} not allowed`);
     return new Response("Method not allowed", {
       status: 405,
       headers: corsHeaders,
@@ -30,7 +35,10 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, subject, message }: ContactFormData = await req.json();
+    const requestBody = await req.text();
+    console.log("Request body received:", requestBody);
+    
+    const { name, email, subject, message }: ContactFormData = JSON.parse(requestBody);
 
     console.log("Processing contact form submission:", {
       name,
@@ -41,6 +49,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
+      console.log("Missing required fields");
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
         {
@@ -50,6 +59,21 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
+    // Check if RESEND_API_KEY is available
+    const apiKey = Deno.env.get("RESEND_API_KEY");
+    if (!apiKey) {
+      console.error("RESEND_API_KEY environment variable is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    console.log("Sending notification email to cristiantumani@gmail.com");
+    
     // Send notification email to you
     const emailResponse = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
@@ -71,8 +95,10 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Notification email sent successfully:", emailResponse);
 
+    console.log("Sending confirmation email to sender");
+    
     // Send confirmation email to the person who contacted you
     await resend.emails.send({
       from: "Cristian Tumani <onboarding@resend.dev>",
@@ -88,6 +114,8 @@ const handler = async (req: Request): Promise<Response> => {
         <p>Best regards,<br>Cristian Tumani<br>Product Lead</p>
       `,
     });
+
+    console.log("Confirmation email sent successfully");
 
     return new Response(
       JSON.stringify({ 
