@@ -1,4 +1,4 @@
-import profilePhoto from "@/assets/profile-photo.jpg";
+const profilePhoto = "/lovable-uploads/7fad32e2-e4d6-4e6a-b7f2-5ab8bffd265f.png";
 const HeroSection = () => {
   return <section id="home" className="min-h-screen flex items-center justify-center bg-section-gradient pt-20">
       <div className="container mx-auto px-6">
