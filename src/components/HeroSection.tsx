@@ -1,4 +1,4 @@
-import profilePhoto from "@/assets/profile-photo.jpg";
+const profilePhoto = "/lovable-uploads/9f406ea7-22b3-4aa7-ba5b-4df13ae5cb65.png";
 
 const HeroSection = () => {
   return (
