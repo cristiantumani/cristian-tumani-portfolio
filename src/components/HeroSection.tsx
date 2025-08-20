@@ -35,7 +35,7 @@ const HeroSection = () => {
           <div className="flex-shrink-0 animate-float">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden shadow-hero">
-                <img src={profilePhoto} alt="Cristian Tumani - Senior Product Manager" className="w-full h-full object-cover" />
+                <img src={profilePhoto} alt="Cristian Tumani - Senior Product Manager" className="w-full h-full object-cover object-top scale-110" />
               </div>
               <div className="absolute inset-0 rounded-full bg-hero-gradient opacity-10"></div>
             </div>
