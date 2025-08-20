@@ -116,13 +116,20 @@ const handler = async (req: Request): Promise<Response> => {
         `,
       });
 
-      console.log("Confirmation email sent successfully:", confirmationEmailResponse);
+      console.log("Confirmation email response:", JSON.stringify(confirmationEmailResponse, null, 2));
       
       if (confirmationEmailResponse.error) {
-        console.error("Confirmation email error:", confirmationEmailResponse.error);
+        console.error("Confirmation email error details:", JSON.stringify(confirmationEmailResponse.error, null, 2));
+      } else if (confirmationEmailResponse.data) {
+        console.log("Confirmation email sent successfully with ID:", confirmationEmailResponse.data.id);
       }
-    } catch (confirmationError) {
-      console.error("Failed to send confirmation email:", confirmationError);
+    } catch (confirmationError: any) {
+      console.error("Failed to send confirmation email - Exception:", {
+        message: confirmationError.message,
+        name: confirmationError.name,
+        stack: confirmationError.stack,
+        details: confirmationError
+      });
       // Don't fail the entire request if confirmation email fails
     }
 
