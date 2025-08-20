@@ -72,7 +72,7 @@ const ContactSection = () => {
                 </div>
                 
                 <a 
-                  href="mailto:cristian.tumani@example.com"
+                  href="mailto:cristiantumani@gmail.com"
                   className="flex items-center gap-4 p-4 bg-card rounded-lg hover:shadow-card transition-all duration-300 group"
                 >
                   <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -81,7 +81,7 @@ const ContactSection = () => {
                   <div>
                     <div className="font-body font-medium text-foreground">Email</div>
                     <div className="font-body text-muted-foreground group-hover:text-primary transition-colors">
-                      cristian.tumani@example.com
+                      cristiantumani@gmail.com
                     </div>
                   </div>
                 </a>
