@@ -69,7 +69,7 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    console.log("Sending notification to n8n webhook");
+    console.log("Sending notification to n8n webhook:", webhookUrl);
     
     // Send notification to n8n webhook
     const webhookResponse = await fetch(webhookUrl, {
@@ -87,8 +87,13 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
+    console.log("Webhook response status:", webhookResponse.status);
+    console.log("Webhook response headers:", Object.fromEntries(webhookResponse.headers));
+
     if (!webhookResponse.ok) {
-      throw new Error(`n8n webhook failed with status: ${webhookResponse.status}`);
+      const errorBody = await webhookResponse.text();
+      console.error("n8n webhook error response:", errorBody);
+      throw new Error(`n8n webhook failed with status: ${webhookResponse.status} - ${errorBody}`);
     }
 
     const webhookResult = await webhookResponse.text();
