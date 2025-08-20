@@ -97,25 +97,34 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Notification email sent successfully:", emailResponse);
 
-    console.log("Sending confirmation email to sender");
+    console.log("Sending confirmation email to sender:", email);
     
-    // Send confirmation email to the person who contacted you
-    const confirmationEmailResponse = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: [email],
-      subject: "Thank you for reaching out!",
-      html: `
-        <h1>Thank you for contacting me, ${name}!</h1>
-        <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
-        <p>Here's a copy of your message for your records:</p>
-        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
-          ${message.replace(/\n/g, '<br>')}
-        </div>
-        <p>Best regards,<br>Cristian Tumani<br>Product Lead</p>
-      `,
-    });
+    try {
+      // Send confirmation email to the person who contacted you
+      const confirmationEmailResponse = await resend.emails.send({
+        from: "Portfolio Contact <onboarding@resend.dev>",
+        to: [email],
+        subject: "Thank you for reaching out!",
+        html: `
+          <h1>Thank you for contacting me, ${name}!</h1>
+          <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
+          <p>Here's a copy of your message for your records:</p>
+          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
+            ${message.replace(/\n/g, '<br>')}
+          </div>
+          <p>Best regards,<br>Cristian Tumani<br>Product Lead</p>
+        `,
+      });
 
-    console.log("Confirmation email sent successfully:", confirmationEmailResponse);
+      console.log("Confirmation email sent successfully:", confirmationEmailResponse);
+      
+      if (confirmationEmailResponse.error) {
+        console.error("Confirmation email error:", confirmationEmailResponse.error);
+      }
+    } catch (confirmationError) {
+      console.error("Failed to send confirmation email:", confirmationError);
+      // Don't fail the entire request if confirmation email fails
+    }
 
     return new Response(
       JSON.stringify({ 
