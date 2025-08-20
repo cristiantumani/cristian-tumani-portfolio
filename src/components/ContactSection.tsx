@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Linkedin, Send, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -9,19 +10,49 @@ const ContactSection = () => {
     subject: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+    if (isSubmitting) return;
     
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+      
+      if (error) {
+        console.error('Error sending contact email:', error);
+        toast({
+          title: "Error sending message",
+          description: "There was an issue sending your message. Please try again or contact me directly.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      // Reset form
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      
+    } catch (error) {
+      console.error('Network error sending contact email:', error);
+      toast({
+        title: "Error sending message", 
+        description: "There was a network error. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -176,9 +207,10 @@ const ContactSection = () => {
                 
                 <button
                   type="submit"
-                  className="w-full bg-hero-gradient text-primary-foreground font-body font-medium px-6 py-4 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full bg-hero-gradient text-primary-foreground font-body font-medium px-6 py-4 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className="w-4 h-4" />
                 </button>
               </form>
