@@ -1,8 +1,5 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
-
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -59,10 +56,10 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Check if RESEND_API_KEY is available
-    const apiKey = Deno.env.get("RESEND_API_KEY");
-    if (!apiKey) {
-      console.error("RESEND_API_KEY environment variable is not set");
+    // Check if N8N webhook URL is available
+    const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
+    if (!webhookUrl) {
+      console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
       return new Response(
         JSON.stringify({ error: "Email service not configured" }),
         {
@@ -72,78 +69,30 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    console.log("Sending notification email to cristiantumani@gmail.com");
+    console.log("Sending notification to n8n webhook");
     
-    // Send notification email to you
-    const emailResponse = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: ["cristiantumani@gmail.com"],
-      subject: `New Contact Form Submission: ${subject}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <h3>Message:</h3>
-        <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; border-left: 4px solid #007bff;">
-          ${message.replace(/\n/g, '<br>')}
-        </div>
-        <hr>
-        <p style="color: #666; font-size: 12px;">
-          This email was sent from your portfolio contact form at ${new Date().toLocaleString()}
-        </p>
-      `,
+    // Send notification to n8n webhook
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        subject,
+        message,
+        timestamp: new Date().toISOString(),
+        to: "cristiantumani@gmail.com"
+      }),
     });
 
-    console.log("Notification email sent successfully:", emailResponse);
-
-    // Only send confirmation emails to your own email due to Resend free tier limitations
-    // For production, upgrade to paid plan and verify a custom domain
-    if (email === "cristiantumani@gmail.com") {
-      console.log("Sending confirmation email to sender:", email);
-      
-      try {
-        const confirmationEmailResponse = await resend.emails.send({
-          from: "Cristian Tumani Portfolio <onboarding@resend.dev>",
-          to: [email],
-          reply_to: "cristiantumani@gmail.com", // Add reply-to for better deliverability
-          subject: "Thank you for reaching out!",
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h1 style="color: #333;">Thank you for contacting me, ${name}!</h1>
-              <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
-              <p>Here's a copy of your message for your records:</p>
-              <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #007bff;">
-                ${message.replace(/\n/g, '<br>')}
-              </div>
-              <p>Best regards,<br><strong>Cristian Tumani</strong><br>Product Lead</p>
-              <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-              <p style="color: #666; font-size: 12px;">
-                This is an automated confirmation email. Please do not reply to this email.
-              </p>
-            </div>
-          `,
-        });
-
-        console.log("Confirmation email response:", JSON.stringify(confirmationEmailResponse, null, 2));
-        
-        if (confirmationEmailResponse.error) {
-          console.error("Confirmation email error details:", JSON.stringify(confirmationEmailResponse.error, null, 2));
-        } else if (confirmationEmailResponse.data) {
-          console.log("Confirmation email sent successfully with ID:", confirmationEmailResponse.data.id);
-        }
-      } catch (confirmationError: any) {
-        console.error("Failed to send confirmation email - Exception:", {
-          message: confirmationError.message,
-          name: confirmationError.name,
-          stack: confirmationError.stack,
-          details: confirmationError
-        });
-        // Don't fail the entire request if confirmation email fails
-      }
-    } else {
-      console.log("Skipping confirmation email - not sent to your verified email address");
+    if (!webhookResponse.ok) {
+      throw new Error(`n8n webhook failed with status: ${webhookResponse.status}`);
     }
+
+    const webhookResult = await webhookResponse.text();
+    console.log("n8n webhook response:", webhookResult);
 
     return new Response(
       JSON.stringify({ 
