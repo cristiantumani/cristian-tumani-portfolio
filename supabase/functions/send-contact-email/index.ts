@@ -58,7 +58,12 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Check if N8N webhook URL is available
     const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
-    console.log("Webhook URL retrieved:", webhookUrl ? "URL is set" : "URL is missing");
+    console.log("=== WEBHOOK URL CHECK ===");
+    console.log("Raw webhook URL:", webhookUrl);
+    console.log("Webhook URL type:", typeof webhookUrl);
+    console.log("Webhook URL length:", webhookUrl?.length || 0);
+    console.log("Is webhook URL truthy:", !!webhookUrl);
+    console.log("========================");
     
     if (!webhookUrl) {
       console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
