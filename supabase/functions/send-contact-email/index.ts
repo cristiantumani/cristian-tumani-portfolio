@@ -56,15 +56,57 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Ultra-simple test - no environment variables
+    // Check if N8N webhook URL is available
+    const webhookUrl = Deno.env.get("N8N_NOTIFICATION_WEBHOOK_URL");
+    
+    if (!webhookUrl) {
+      console.error("N8N_NOTIFICATION_WEBHOOK_URL environment variable is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    console.log("Sending notification to n8n webhook:", webhookUrl);
+    
+    const payload = {
+      name,
+      email,
+      subject,
+      message,
+      timestamp: new Date().toISOString(),
+      to: "cristiantumani@gmail.com"
+    };
+    
+    console.log("Payload being sent:", JSON.stringify(payload));
+    
+    // Send notification to n8n webhook
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    console.log("Webhook response status:", webhookResponse.status);
+
+    if (!webhookResponse.ok) {
+      const errorBody = await webhookResponse.text();
+      console.error("n8n webhook error response:", errorBody);
+      throw new Error(`n8n webhook failed with status: ${webhookResponse.status} - ${errorBody}`);
+    }
+
+    const webhookResult = await webhookResponse.text();
+    console.log("n8n webhook success response:", webhookResult);
+
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Contact form received successfully - minimal test",
-        debug: {
-          formData: { name, email, subject },
-          timestamp: new Date().toISOString()
-        }
+        message: "Contact form submitted successfully" 
       }),
       {
         status: 200,
