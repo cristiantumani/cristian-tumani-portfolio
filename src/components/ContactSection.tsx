@@ -18,18 +18,22 @@ const ContactSection = () => {
     
     if (isSubmitting) return;
     
+    console.log('Form submission started with data:', formData);
     setIsSubmitting(true);
     
     try {
+      console.log('Calling Supabase function...');
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
+      
+      console.log('Function response:', { data, error });
       
       if (error) {
         console.error('Error sending contact email:', error);
         toast({
           title: "Error sending message",
-          description: "There was an issue sending your message. Please try again or contact me directly.",
+          description: `There was an issue sending your message: ${error.message}. Please try again or contact me directly.`,
           variant: "destructive",
         });
         return;
@@ -43,11 +47,11 @@ const ContactSection = () => {
       // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Network error sending contact email:', error);
       toast({
         title: "Error sending message", 
-        description: "There was a network error. Please try again or contact me directly.",
+        description: `There was a network error: ${error?.message || 'Unknown error'}. Please try again or contact me directly.`,
         variant: "destructive",
       });
     } finally {
