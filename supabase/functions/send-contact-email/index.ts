@@ -97,49 +97,52 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Notification email sent successfully:", emailResponse);
 
-    console.log("Sending confirmation email to sender:", email);
-    
-    try {
-      // Send confirmation email to the person who contacted you
-      // Note: Using onboarding@resend.dev may have limitations for external emails
-      // Consider setting up a custom domain in Resend for production use
-      const confirmationEmailResponse = await resend.emails.send({
-        from: "Cristian Tumani Portfolio <onboarding@resend.dev>",
-        to: [email],
-        reply_to: "cristiantumani@gmail.com", // Add reply-to for better deliverability
-        subject: "Thank you for reaching out!",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #333;">Thank you for contacting me, ${name}!</h1>
-            <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
-            <p>Here's a copy of your message for your records:</p>
-            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #007bff;">
-              ${message.replace(/\n/g, '<br>')}
-            </div>
-            <p>Best regards,<br><strong>Cristian Tumani</strong><br>Product Lead</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <p style="color: #666; font-size: 12px;">
-              This is an automated confirmation email. Please do not reply to this email.
-            </p>
-          </div>
-        `,
-      });
-
-      console.log("Confirmation email response:", JSON.stringify(confirmationEmailResponse, null, 2));
+    // Only send confirmation emails to your own email due to Resend free tier limitations
+    // For production, upgrade to paid plan and verify a custom domain
+    if (email === "cristiantumani@gmail.com") {
+      console.log("Sending confirmation email to sender:", email);
       
-      if (confirmationEmailResponse.error) {
-        console.error("Confirmation email error details:", JSON.stringify(confirmationEmailResponse.error, null, 2));
-      } else if (confirmationEmailResponse.data) {
-        console.log("Confirmation email sent successfully with ID:", confirmationEmailResponse.data.id);
+      try {
+        const confirmationEmailResponse = await resend.emails.send({
+          from: "Cristian Tumani Portfolio <onboarding@resend.dev>",
+          to: [email],
+          reply_to: "cristiantumani@gmail.com", // Add reply-to for better deliverability
+          subject: "Thank you for reaching out!",
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h1 style="color: #333;">Thank you for contacting me, ${name}!</h1>
+              <p>I have received your message about "<strong>${subject}</strong>" and will get back to you as soon as possible.</p>
+              <p>Here's a copy of your message for your records:</p>
+              <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #007bff;">
+                ${message.replace(/\n/g, '<br>')}
+              </div>
+              <p>Best regards,<br><strong>Cristian Tumani</strong><br>Product Lead</p>
+              <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+              <p style="color: #666; font-size: 12px;">
+                This is an automated confirmation email. Please do not reply to this email.
+              </p>
+            </div>
+          `,
+        });
+
+        console.log("Confirmation email response:", JSON.stringify(confirmationEmailResponse, null, 2));
+        
+        if (confirmationEmailResponse.error) {
+          console.error("Confirmation email error details:", JSON.stringify(confirmationEmailResponse.error, null, 2));
+        } else if (confirmationEmailResponse.data) {
+          console.log("Confirmation email sent successfully with ID:", confirmationEmailResponse.data.id);
+        }
+      } catch (confirmationError: any) {
+        console.error("Failed to send confirmation email - Exception:", {
+          message: confirmationError.message,
+          name: confirmationError.name,
+          stack: confirmationError.stack,
+          details: confirmationError
+        });
+        // Don't fail the entire request if confirmation email fails
       }
-    } catch (confirmationError: any) {
-      console.error("Failed to send confirmation email - Exception:", {
-        message: confirmationError.message,
-        name: confirmationError.name,
-        stack: confirmationError.stack,
-        details: confirmationError
-      });
-      // Don't fail the entire request if confirmation email fails
+    } else {
+      console.log("Skipping confirmation email - not sent to your verified email address");
     }
 
     return new Response(
