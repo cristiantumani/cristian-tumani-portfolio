@@ -6,7 +6,7 @@ const ExperienceSection = () => {
       icon: Rocket,
       company: "Lokalise",
       role: "Group Product Manager",
-      period: "Jan 2021 - Apr 2022",
+      period: "May 2022 - Present",
       location: "Barcelona, Spain - Amsterdam, Netherlands",
       description: "Led a team of 3 Product Managers to revolutionize localization with AI-driven solutions, reducing costs by up to 30% while scaling the core platform globally.",
       achievements: [
