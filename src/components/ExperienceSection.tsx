@@ -8,18 +8,18 @@ const ExperienceSection = () => {
       role: "Group Product Manager",
       period: "May 2022 - Present",
       location: "Barcelona, Spain - Amsterdam, Netherlands",
-      description: "Leading a high-performing team of 3 Product Managers to revolutionize the localization industry with cutting-edge AI solutions, achieving unprecedented cost reductions while scaling our platform to serve global enterprises.",
+      description: "Leading a high-performing team of 3 Product Managers to revolutionize the localization industry - led development of new products from zero to launch using cutting-edge AI solutions, achieving cost reductions while scaling our platform to serve global enterprises.",
       achievements: [
-        "Built AI-powered Marketing Content solution from scratch with integrations to Shopify, Contentful, Webflow, and HubSpot",
-        "Successfully onboarded 150+ customers in the first month of product launch",
-        "Conducted 100+ customer interviews driving strategic product decisions"
+        "Built AI-powered Marketing Content solution from scratch with integrations such as Shopify, Contentful, Webflow, and HubSpot",
+  ,
+        "Actively participate and conducted 100+ customer interviews driving strategic product decisions"
       ]
     },
     {
       icon: ShoppingBag,
       company: "adidas",
       role: "Director of Product Management",
-      period: "Dec 2021 - Jan 2022",
+      period: "Dec 2021 - May 2022",
       location: "Amsterdam, Netherlands",
       description: "Orchestrated the transformation of adidas CONFIRMED into the world's premier sneakerhead community platform, delivering exceptional growth metrics and establishing new standards for brand engagement in the digital space.",
       achievements: [
