@@ -42,9 +42,11 @@ const AboutSection = () => {
               </p>
               
               <p className="font-body text-lg text-foreground leading-relaxed mb-6">
-                Currently based in <span className="text-accent font-medium">Barcelona, Spain </span> <span className="font-medium">, with 13+ years of digital product management experience, I bring together</span> from both high-growth startups and established enterprises. My unique perspective comes from leading products in different cultural contexts and market conditions.
+                Currently based in <span className="text-accent font-medium">Barcelona, Spain </span> <span className="font-medium">, with 13+ years of digital product management experience,</span> from both high-growth startups and established enterprises.               </p>
+              <p className="font-body text-lg text-foreground leading-relaxed mb-6">
+                My unique perspective comes from leading products in different cultural contexts and market conditions.
               </p>
-              
+
               <p className="font-body text-lg text-foreground leading-relaxed">
                 I thrive on the challenge of taking products from <span className="font-medium">zero to launch</span>, building cross-functional teams, and creating solutions that scale globally while remaining locally relevant.
               </p>
