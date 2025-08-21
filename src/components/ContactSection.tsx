@@ -96,7 +96,7 @@ const ContactSection = () => {
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 p-4 bg-card rounded-lg">
                   <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
