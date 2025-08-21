@@ -38,11 +38,11 @@ const AboutSection = () => {
             {/* Story */}
             <div className="animate-slide-in-left">
               <p className="font-body text-lg text-foreground leading-relaxed mb-6">
-                My career began in <span className="text-accent font-medium">Santiago, Chile</span>, where I discovered my passion for building products that solve real problems. The journey then took me to <span className="text-accent font-medium">Amsterdam</span>, where I learned to navigate international markets and diverse team dynamics.
+                My career began in <span className="text-accent font-medium">Santiago, Chile</span>, where I discovered my passion for building products that solve real problems. The journey then took me to <span className="text-accent font-medium">Amsterdam</span>, where I joined adidas and learned to navigate international markets and diverse team dynamics.
               </p>
               
               <p className="font-body text-lg text-foreground leading-relaxed mb-6">
-                Currently based in <span className="text-accent font-medium">13+ years of digital product management experience</span>, I bring together <span className="font-medium">8+ years of digital product management experience</span> from both high-growth startups and established enterprises. My unique perspective comes from leading products in different cultural contexts and market conditions.
+                Currently based in <span className="text-accent font-medium">Barcelona, Spain </span> <span className="font-medium">, with 13+ years of digital product management experience, I bring together</span> from both high-growth startups and established enterprises. My unique perspective comes from leading products in different cultural contexts and market conditions.
               </p>
               
               <p className="font-body text-lg text-foreground leading-relaxed">
