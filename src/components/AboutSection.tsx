@@ -38,7 +38,7 @@ const AboutSection = () => {
             {/* Story */}
             <div className="animate-slide-in-left">
               <p className="font-body text-lg text-foreground leading-relaxed mb-6">
-                My career began in <span className="text-accent font-medium">Santiago, Chile</span>, where I discovered my passion for building products that solve real problems. The journey then took me to <span className="text-accent font-medium">Amsterdam</span>, where I joined adidas and learned to navigate international markets and diverse team dynamics.
+                My career began in <span className="text-accent font-medium">Santiago, Chile</span>, where I discovered my passion for building products that solve real problems while working in LATAM Airlines. The journey then took me to <span className="text-accent font-medium">Amsterdam</span>, where I joined adidas and learned to navigate international markets and diverse team dynamics.
               </p>
               
               <p className="font-body text-lg text-foreground leading-relaxed mb-6">
