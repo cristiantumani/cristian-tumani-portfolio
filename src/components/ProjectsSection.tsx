@@ -3,7 +3,7 @@ import { ExternalLink, ArrowRight, Users, TrendingUp, Globe } from "lucide-react
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Global E-commerce Platform",
+      title: "adidas CONFIRMED App",
       company: "adidas",
       category: "E-commerce • Mobile",
       description: "Led the development of a new Mobile App platform serving +20 countries accross the globe.",
@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       results: "Successfully launched in +20 markets within the first 6 months, achieving an incredible mark of 6 millions installs and 4M monthly active users."
     },
     {
-      title: "Airline Digital Transformation",
+      title: "Best mobile Checkin in Airlines Industry",
       company: "LATAM Airlines",
       category: "Travel • Mobile App",
       description: "Improve Checkin experience in LATAM Airlines mobile app so to increase adoption of Checkin.",
