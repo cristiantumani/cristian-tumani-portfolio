@@ -25,7 +25,7 @@ const HeroSection = () => {
             {/* Status badge */}
             <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6 shadow-card">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-muted-foreground">Available for new opportunities</span>
+              <span className="text-sm font-medium text-muted-foreground">Let's collaborate together</span>
             </div>
 
             <h1 className="font-heading font-bold text-5xl lg:text-6xl text-foreground mb-6 leading-tight">
