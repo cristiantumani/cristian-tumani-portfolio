@@ -49,6 +49,10 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Countries</div>
               </div>
               <div className="text-center">
+                <div className="font-heading font-bold text-2xl text-primary">AI</div>
+                <div className="text-sm text-muted-foreground">Product Lead</div>
+              </div>
+              <div className="text-center">
                 <div className="font-heading font-bold text-2xl text-primary">Multiple</div>
                 <div className="text-sm text-muted-foreground">Projects</div>
               </div>
