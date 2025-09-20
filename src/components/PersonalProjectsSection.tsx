@@ -1,6 +1,6 @@
 import { ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import boltLogo from "@/assets/bolt-logo.ico";
+import boltLogo from "@/assets/bolt-logo.png";
 import chatgptLogo from "@/assets/chatgpt-logo.png";
 import supabaseLogo from "@/assets/supabase-logo.png";
 
