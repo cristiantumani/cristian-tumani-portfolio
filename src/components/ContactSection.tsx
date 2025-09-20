@@ -134,34 +134,6 @@ const ContactSection = () => {
             })}
           </div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card 
-                  key={service.title}
-                  className="hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02] animate-fade-in border-border/50"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardHeader className="text-center pb-4">
-                    <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
-                    <CardTitle className="font-heading text-xl text-foreground">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <CardDescription className="font-body text-muted-foreground text-center leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
           {/* Contact Form and Info Section */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             
