@@ -18,7 +18,7 @@ const BlogPostDetail = ({ onBack }: BlogPostDetailProps) => {
       </Button>
 
       <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight pb-2 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
           Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision
         </h1>
         <div className="flex items-center gap-4 text-muted-foreground">

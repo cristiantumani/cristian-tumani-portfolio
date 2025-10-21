@@ -23,7 +23,7 @@ const Blog = () => {
             </div>
 
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight pb-2 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Blog Post
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto mb-6"></div>
@@ -34,9 +34,9 @@ const Blog = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogPosts.map((post) => (
-                <Card key={post.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                 <Card key={post.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardHeader>
-                    <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                    <CardTitle className="line-clamp-2 leading-snug pb-1">{post.title}</CardTitle>
                     <CardDescription className="flex items-center gap-4 text-sm">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
