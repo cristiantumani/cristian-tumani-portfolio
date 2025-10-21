@@ -16,19 +16,15 @@ const Blog = () => {
         <section className="py-8 px-4 bg-gradient-to-b from-background to-muted/20">
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
-              <Button 
-                variant="ghost" 
-                onClick={() => navigate("/")}
-                className="group"
-              >
+              <Button variant="ghost" onClick={() => navigate("/")} className="group">
                 <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                 Back to Home
               </Button>
             </div>
-            
-            <div className="text-center mb-12">
+
+            <div className="text-center mb-11">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                Blog
+                Blog Posts
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/60 mx-auto mb-6"></div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -54,11 +50,7 @@ const Blog = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
-                    <Button 
-                      variant="ghost" 
-                      className="group"
-                      onClick={() => navigate(`/blog/${post.slug}`)}
-                    >
+                    <Button variant="ghost" className="group" onClick={() => navigate(`/blog/${post.slug}`)}>
                       Read More
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
