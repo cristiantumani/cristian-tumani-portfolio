@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import BlogPostDetail from "@/components/blog/BlogPostDetail";
 
 interface BlogPost {
   id: string;
@@ -12,8 +14,22 @@ interface BlogPost {
 }
 
 const BlogSection = () => {
-  // Placeholder for blog posts - will be populated with actual content
-  const blogPosts: BlogPost[] = [];
+  const [selectedPost, setSelectedPost] = useState<string | null>(null);
+
+  const blogPosts: BlogPost[] = [
+    {
+      id: "1",
+      title: "Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision",
+      excerpt: "In B2B SaaS, your product roadmap is more than a list of features — it's the strategic narrative of where your company is going and why. Learn how to balance short-term revenue targets with long-term product vision.",
+      date: "October 21, 2025",
+      readTime: "6 min read",
+      slug: "balancing-now-and-next-product-roadmap"
+    }
+  ];
+
+  if (selectedPost) {
+    return <BlogPostDetail onBack={() => setSelectedPost(null)} />;
+  }
 
   return (
     <section id="blog" className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
@@ -53,7 +69,11 @@ const BlogSection = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
-                  <Button variant="ghost" className="group">
+                  <Button 
+                    variant="ghost" 
+                    className="group"
+                    onClick={() => setSelectedPost(post.id)}
+                  >
                     Read More
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
