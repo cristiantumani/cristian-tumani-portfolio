@@ -13,7 +13,7 @@ const Blog = () => {
     <div className="min-h-screen">
       <Navigation />
       <div className="pt-20">
-        <section className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
+        <section className="py-8 px-4 bg-gradient-to-b from-background to-muted/20">
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
               <Button 
