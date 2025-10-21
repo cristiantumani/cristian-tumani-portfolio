@@ -1,35 +1,14 @@
-import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-import BlogPostDetail from "@/components/blog/BlogPostDetail";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  slug: string;
-}
+import { useNavigate } from "react-router-dom";
+import { blogPosts } from "@/data/blogPosts";
 
 const BlogSection = () => {
-  const [selectedPost, setSelectedPost] = useState<string | null>(null);
-
-  const blogPosts: BlogPost[] = [
-    {
-      id: "1",
-      title: "Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision",
-      excerpt: "In B2B SaaS, your product roadmap is more than a list of features — it's the strategic narrative of where your company is going and why. Learn how to balance short-term revenue targets with long-term product vision.",
-      date: "October 21, 2025",
-      readTime: "6 min read",
-      slug: "balancing-now-and-next-product-roadmap"
-    }
-  ];
-
-  if (selectedPost) {
-    return <BlogPostDetail onBack={() => setSelectedPost(null)} />;
-  }
+  const navigate = useNavigate();
+  
+  // Show only the last 3 blog posts
+  const recentPosts = blogPosts.slice(0, 3);
 
   return (
     <section id="blog" className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
@@ -44,15 +23,16 @@ const BlogSection = () => {
           </p>
         </div>
 
-        {blogPosts.length === 0 ? (
+        {recentPosts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">
               Blog posts coming soon. Stay tuned for insights and updates!
             </p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentPosts.map((post) => (
               <Card key={post.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="line-clamp-2">{post.title}</CardTitle>
@@ -67,20 +47,35 @@ const BlogSection = () => {
                     </span>
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
-                  <Button 
-                    variant="ghost" 
-                    className="group"
-                    onClick={() => setSelectedPost(post.id)}
-                  >
-                    Read More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <CardContent>
+                    <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
+                    <Button 
+                      variant="ghost" 
+                      className="group"
+                      onClick={() => navigate(`/blog/${post.slug}`)}
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            {blogPosts.length > 3 && (
+              <div className="text-center mt-8">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => navigate("/blog")}
+                  className="group"
+                >
+                  View All Posts
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

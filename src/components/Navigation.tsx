@@ -1,20 +1,43 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
+    { id: "blog", label: "Blog", isRoute: true },
     { id: "contact", label: "Contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const handleNavClick = (item: { id: string; label: string; isRoute?: boolean }) => {
+    if (item.isRoute) {
+      navigate("/blog");
+    } else {
+      scrollToSection(item.id);
     }
   };
 
@@ -51,9 +74,9 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item)}
                 className={`font-body font-medium transition-colors duration-200 ${
-                  activeSection === item.id
+                  (item.isRoute && location.pathname.startsWith("/blog")) || activeSection === item.id
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
