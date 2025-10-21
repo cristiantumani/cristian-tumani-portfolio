@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
+import CategoryPill from "@/components/blog/CategoryPill";
 
 const Blog = () => {
   const navigate = useNavigate();
@@ -36,6 +37,11 @@ const Blog = () => {
               {blogPosts.map((post) => (
                  <Card key={post.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardHeader>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {post.categories.map((category) => (
+                        <CategoryPill key={category} category={category} />
+                      ))}
+                    </div>
                     <CardTitle className="line-clamp-2 leading-snug pb-1">{post.title}</CardTitle>
                     <CardDescription className="flex items-center gap-4 text-sm">
                       <span className="flex items-center gap-1">

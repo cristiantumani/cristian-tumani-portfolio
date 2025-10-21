@@ -1,3 +1,5 @@
+import { CategoryType } from "./blogCategories";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   slug: string;
+  categories: CategoryType[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -14,6 +17,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "In B2B SaaS, your product roadmap is more than a list of features — it's the strategic narrative of where your company is going and why. Learn how to balance short-term revenue targets with long-term product vision.",
     date: "October 21, 2025",
     readTime: "6 min read",
-    slug: "balancing-now-and-next-product-roadmap"
+    slug: "balancing-now-and-next-product-roadmap",
+    categories: ["Product Strategy", "Roadmapping", "Leadership"]
   }
 ];

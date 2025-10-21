@@ -1,11 +1,16 @@
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CategoryPill from "./CategoryPill";
+import { blogPosts } from "@/data/blogPosts";
 
 interface BlogPostDetailProps {
   onBack: () => void;
 }
 
 const BlogPostDetail = ({ onBack }: BlogPostDetailProps) => {
+  // Get the first blog post (hardcoded for now as this component displays the first post)
+  const post = blogPosts[0];
+
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
       <Button 
@@ -18,17 +23,22 @@ const BlogPostDetail = ({ onBack }: BlogPostDetailProps) => {
       </Button>
 
       <header className="mb-8">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {post.categories.map((category) => (
+            <CategoryPill key={category} category={category} />
+          ))}
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight pb-2 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-          Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision
+          {post.title}
         </h1>
         <div className="flex items-center gap-4 text-muted-foreground">
           <span className="flex items-center gap-1">
             <Calendar className="w-4 h-4" />
-            October 21, 2025
+            {post.date}
           </span>
           <span className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
-            6 min read
+            {post.readTime}
           </span>
         </div>
       </header>
