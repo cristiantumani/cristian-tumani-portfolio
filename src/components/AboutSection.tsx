@@ -1,4 +1,6 @@
-import { MapPin, Users, Target, Zap } from "lucide-react";
+import { MapPin, Users, Target, Zap, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 const AboutSection = () => {
   const highlights = [{
     icon: MapPin,
@@ -47,9 +49,16 @@ const AboutSection = () => {
                 My unique perspective comes from leading products in different cultural contexts and market conditions.
               </p>
 
-              <p className="font-body text-lg text-foreground leading-relaxed">
+              <p className="font-body text-lg text-foreground leading-relaxed mb-8">
                 I thrive on the challenge of taking products from <span className="font-medium">zero to launch</span>, building cross-functional teams, and creating solutions that scale globally while remaining locally relevant.
               </p>
+
+              <Link to="/more-about-me">
+                <Button className="group">
+                  More About Me
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
             
             {/* Highlights Grid */}
