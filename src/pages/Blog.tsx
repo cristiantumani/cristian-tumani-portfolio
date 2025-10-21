@@ -22,7 +22,7 @@ const Blog = () => {
               </Button>
             </div>
 
-            <div className="text-center mb-8">
+            <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 Blog Post
               </h1>
