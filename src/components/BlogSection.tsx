@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { blogPosts } from "@/data/blogPosts";
+import CategoryPill from "@/components/blog/CategoryPill";
 
 const BlogSection = () => {
   const navigate = useNavigate();
@@ -35,6 +36,11 @@ const BlogSection = () => {
               {recentPosts.map((post) => (
               <Card key={post.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {post.categories.map((category) => (
+                      <CategoryPill key={category} category={category} />
+                    ))}
+                  </div>
                   <CardTitle className="line-clamp-2">{post.title}</CardTitle>
                   <CardDescription className="flex items-center gap-4 text-sm">
                     <span className="flex items-center gap-1">
