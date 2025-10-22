@@ -19,5 +19,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read",
     slug: "balancing-now-and-next-product-roadmap",
     categories: ["Product Strategy", "Roadmapping", "Leadership"]
+  },
+  {
+    id: "2",
+    title: "The Power of Starting Over: Life Lessons from Two International Moves",
+    excerpt: "Moving abroad comes in phases — from the honeymoon period to comparison and finally acceptance. Here are the lessons I learned from relocating my family twice, from Chile to Amsterdam and then to Barcelona.",
+    date: "October 22, 2025",
+    readTime: "5 min read",
+    slug: "power-of-starting-over-international-moves",
+    categories: ["Expat Life", "Personal Growth", "Travel"]
   }
 ];
