@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+const NAV_ITEMS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "blog", label: "Blog", isRoute: true },
+  { id: "contact", label: "Contact" },
+];
+
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "blog", label: "Blog", isRoute: true },
-    { id: "contact", label: "Contact" },
-  ];
+  const navItems = NAV_ITEMS;
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate there first
@@ -43,7 +45,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => item.id);
+      const sections = NAV_ITEMS.map(item => item.id);
       const scrollPosition = window.scrollY + 100;
 
       for (const sectionId of sections) {

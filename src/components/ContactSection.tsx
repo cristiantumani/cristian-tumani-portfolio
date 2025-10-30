@@ -48,11 +48,12 @@ const ContactSection = () => {
       // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Network error sending contact email:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       toast({
         title: "Error sending message", 
-        description: `There was a network error: ${error?.message || 'Unknown error'}. Please try again or contact me directly.`,
+        description: `There was a network error: ${errorMessage}. Please try again or contact me directly.`,
         variant: "destructive",
       });
     } finally {
