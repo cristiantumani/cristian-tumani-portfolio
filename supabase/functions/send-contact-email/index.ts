@@ -128,8 +128,11 @@ const handler = async (req: Request): Promise<Response> => {
         const webhookResult = await webhookResponse.text();
         console.log("N8N webhook success response:", webhookResult);
       }
-    } catch (webhookError: any) {
-      console.error("N8N webhook error (non-critical):", webhookError.message);
+    } catch (webhookError: unknown) {
+      const webhookErrorMessage = webhookError instanceof Error
+        ? webhookError.message
+        : JSON.stringify(webhookError);
+      console.error("N8N webhook error (non-critical):", webhookErrorMessage);
       // Don't fail the whole function if webhook fails
     }
 
@@ -146,16 +149,24 @@ const handler = async (req: Request): Promise<Response> => {
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
-    console.error("Error name:", error.name);
-    console.error("Error message:", error.message);
-    console.error("Error stack:", error.stack);
+
+    const errorName = error instanceof Error ? error.name : "UnknownError";
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorStack = error instanceof Error ? error.stack : undefined;
+
+    console.error("Error name:", errorName);
+    console.error("Error message:", errorMessage);
+    if (errorStack) {
+      console.error("Error stack:", errorStack);
+    }
+
     return new Response(
       JSON.stringify({ 
         error: "Failed to send email",
-        details: error.message,
-        type: error.name
+        details: errorMessage,
+        type: errorName
       }),
       {
         status: 500,
