@@ -97,6 +97,10 @@ export const blogContent: Record<string, string> = {
     </p>
 
     <p class="mb-6">
+      <em>Want to dive deeper into choosing and implementing the right framework? Check out my detailed guide: <a href="https://cristiantumani.com/blog/prioritization-frameworks-that-actually-work" class="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer">Prioritization Frameworks That Actually Work</a>.</em>
+    </p>
+
+    <p class="mb-6">
       When new opportunities come in, GTM leaders should already know the trade-offs — that adding one initiative means something else must drop. This shared language of prioritization removes emotion from the process and builds alignment across teams.
     </p>
 
