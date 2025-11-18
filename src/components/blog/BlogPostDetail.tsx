@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CategoryPill from "./CategoryPill";
+import ContactModal from "@/components/ContactModal";
 import { blogPosts } from "@/data/blogPosts";
 import { blogContent } from "@/data/blogContent";
 
@@ -55,6 +56,24 @@ const BlogPostDetail = ({ onBack }: BlogPostDetailProps) => {
         className="prose prose-lg dark:prose-invert max-w-none"
         dangerouslySetInnerHTML={{ __html: content }}
       />
+
+      <div className="mt-12 pt-8 border-t border-border">
+        <div className="bg-muted/30 rounded-lg p-8 text-center">
+          <h3 className="text-2xl font-bold mb-3">Want to discuss this further?</h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            I'd love to hear your thoughts on this topic. Feel free to reach out if you have questions, want to share your experience, or just want to connect.
+          </p>
+          <ContactModal 
+            defaultSubject={`Re: ${post.title}`}
+            trigger={
+              <Button size="lg" className="group">
+                <Mail className="w-4 h-4 mr-2" />
+                Get in Touch
+              </Button>
+            }
+          />
+        </div>
+      </div>
     </article>
   );
 };
