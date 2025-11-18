@@ -70,6 +70,10 @@ const HeroSection = () => {
             })} className="border border-border bg-card/80 backdrop-blur-sm text-foreground font-body font-medium px-8 py-3 rounded-lg hover:bg-secondary transition-all duration-300">
                 View Projects
               </button>
+              
+              <a href="https://cristiantumani.substack.com/?r=1q8ayo&utm_campaign=pub-share-checklist" target="_blank" rel="noopener noreferrer" className="border border-border bg-card/80 backdrop-blur-sm text-foreground font-body font-medium px-8 py-3 rounded-lg hover:bg-secondary transition-all duration-300 text-center">
+                Read My Newsletter
+              </a>
             </div>
           </div>
           
