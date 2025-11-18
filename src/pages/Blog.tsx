@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
@@ -12,6 +13,17 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Blog - Cristian Tumani | Product Management & Leadership Insights</title>
+        <meta name="description" content="Thoughts, insights, and experiences on product management, leadership, and international living from Product Lead Cristian Tumani." />
+        <meta property="og:title" content="Blog - Cristian Tumani" />
+        <meta property="og:description" content="Thoughts, insights, and experiences on product management, leadership, and international living." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.cristiantumanipq.com/blog" />
+        <meta name="twitter:title" content="Blog - Cristian Tumani" />
+        <meta name="twitter:description" content="Thoughts, insights, and experiences on product management, leadership, and international living." />
+        <link rel="canonical" href="https://www.cristiantumanipq.com/blog" />
+      </Helmet>
       <Navigation />
       <div className="pt-20">
         <section className="py-8 px-4 bg-gradient-to-b from-background to-muted/20">
