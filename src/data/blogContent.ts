@@ -253,5 +253,233 @@ export const blogContent: Record<string, string> = {
     <p class="leading-relaxed font-medium">
       Take the leap. You might just find a new version of yourself waiting on the other side.
     </p>
+  `,
+  
+  "prioritization-frameworks-that-actually-work": `
+    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+      If you've worked in Product for more than five minutes, you've probably seen it: Everyone agrees prioritization is important… and absolutely no one agrees on how to do it.
+    </p>
+
+    <p class="mb-6">
+      Across my years in companies of all shapes and sizes—from big B2C brands like LATAM Airlines and adidas to fast-moving B2B SaaS teams—this question keeps coming back:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>How do Product teams prioritize?</li>
+      <li>How do we choose what to build next when everyone wants something?</li>
+    </ul>
+
+    <p class="mb-4">
+      And trust me, everyone always wants something:
+    </p>
+
+    <ul class="list-disc pl-6 mb-8 space-y-2">
+      <li><strong>CSMs</strong> want to reduce churn and expand accounts → "We just need this improvement…"</li>
+      <li><strong>Sales</strong> wants new shiny features to win deals → "We just need this additional functionality to close this deal…"</li>
+      <li><strong>Product</strong> wants to build toward the long-term vision → "We just need to not derail the roadmap…"</li>
+    </ul>
+
+    <p class="mb-6">
+      So how do you turn all these conflicting needs into a clear plan without losing your mind?
+    </p>
+
+    <p class="mb-8">
+      Let me break down what I've learned—after lots of prioritization sessions, debates, and the occasional "Why isn't this on the roadmap?!" Slack message.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">1. Don't Over-Engineer Your Prioritization Framework</h2>
+
+    <p class="mb-4">
+      This is the biggest trap PMs fall into—especially when trying to "prove" they're being rigorous.
+    </p>
+
+    <p class="mb-4">
+      We build complex spreadsheets… with 18 dimensions… weighted according to the moon cycle and the Fibonacci sequence…
+    </p>
+
+    <p class="mb-2">
+      And then two things happen:
+    </p>
+
+    <ol class="list-decimal pl-6 mb-6 space-y-2">
+      <li>You waste a ton of time collecting data instead of building.</li>
+      <li>You're suddenly doing analytics gymnastics instead of making product decisions.</li>
+      <li>No one understands your model.</li>
+    </ol>
+
+    <p class="mb-6">
+      If people don't get the framework, they question the output. You get stuck explaining formulas instead of explaining priorities.
+    </p>
+
+    <p class="mb-8 font-medium">
+      Keep it simple enough that people understand it without a PhD (in other words, you could explain it to your beautiful and caring Grandmom and she will understand it).
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">2. Communicate Your Framework Like It's a Product Feature</h2>
+
+    <p class="mb-6">
+      This is honestly more important than the framework itself.
+    </p>
+
+    <p class="mb-4">
+      Most stakeholder complaints aren't about what you prioritized. They're about feeling out of the loop.
+    </p>
+
+    <p class="mb-2">
+      When people understand:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>what the roadmap is</li>
+      <li>why things are prioritized</li>
+      <li>how decisions are made</li>
+    </ul>
+
+    <p class="mb-6">
+      …they're far more accepting, even if their request isn't scheduled.
+    </p>
+
+    <p class="mb-8 font-bold">
+      Transparency > Perfection.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">3. Execution Beats Perfect Prioritization Every Single Time</h2>
+
+    <p class="mb-4">
+      You will never prioritize flawlessly. You will ship things that flop. Everyone does.
+    </p>
+
+    <p class="mb-6">
+      But that's fine.
+    </p>
+
+    <p class="mb-6">
+      The real danger is spending months planning, debating, analyzing… and then executing slowly or poorly.
+    </p>
+
+    <p class="mb-8 font-medium">
+      A decent idea shipped fast teaches you more than a "perfect" plan stuck in analysis paralysis.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">4. Prioritization Frameworks Won't Tell You ARR (and They Shouldn't)</h2>
+
+    <p class="mb-4">
+      I've seen so many teams try to force frameworks to spit out an ARR number.
+    </p>
+
+    <p class="mb-4">
+      It doesn't work.
+    </p>
+
+    <p class="mb-6">
+      Really, it doesn't.
+    </p>
+
+    <p class="mb-8">
+      Prioritization models are designed to compare initiatives relative to one another, not calculate revenue. Trying to turn them into forecasting tools will only mislead conversations and expectations.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">So, What Prioritization Frameworks Actually Work?</h2>
+
+    <p class="mb-8">
+      After trying countless models, I consistently rely on two.
+    </p>
+
+    <h3 class="text-2xl font-semibold mt-10 mb-4">Framework #1: The Effort vs Impact Matrix</h3>
+
+    <p class="mb-4">
+      Simple, visual, and perfect as a starting point.
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li><strong>Impact</strong> → What value does it unlock?</li>
+      <li><strong>Effort</strong> → How hard is it to deliver (including risks & dependencies)?</li>
+    </ul>
+
+    <p class="mb-2">
+      It quickly highlights:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>quick wins</li>
+      <li>big bets</li>
+      <li>things to ignore</li>
+      <li>things to postpone</li>
+    </ul>
+
+    <p class="mb-8">
+      Great for alignment. Great for speed. But yes—it's not the most nuanced.
+    </p>
+
+    <h3 class="text-2xl font-semibold mt-10 mb-4">Framework #2: RICE (or ICE if you want it simpler)</h3>
+
+    <p class="mb-6">
+      This is my go-to when you need more precision without over-engineering.
+    </p>
+
+    <p class="mb-2 font-medium">
+      RICE stands for:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li><strong>R</strong> — Reach: How many users/customers will be impacted?</li>
+      <li><strong>I</strong> — Impact: How significant is the value or improvement?</li>
+      <li><strong>C</strong> — Confidence: How sure are we about the assumptions?</li>
+      <li><strong>E</strong> — Effort: What's the cost (time, complexity, dependencies)?</li>
+    </ul>
+
+    <p class="mb-2">
+      This avoids common mistakes like:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>building something for a lot of users that doesn't actually matter</li>
+      <li>building something extremely valuable but only for a tiny group</li>
+    </ul>
+
+    <p class="mb-4 font-medium text-lg">
+      And I add a final "S": Strategy
+    </p>
+
+    <p class="mb-6">
+      This is my personal addition. Some things look important short-term but don't move you toward your long-term strategy. Or they have strong timing constraints (e.g., partner launches or market windows).
+    </p>
+
+    <p class="mb-8">
+      Adding Strategy keeps you honest and helps avoid shiny-object decisions.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">So, let's summarize</h2>
+
+    <p class="mb-6">
+      If you only take a few things from this article, let them be these:
+    </p>
+
+    <ul class="list-none space-y-4 mb-8">
+      <li>
+        <span class="font-medium">✔ Keep prioritization simple</span><br/>
+        <span class="text-muted-foreground">Complexity doesn't make you smarter—it just slows you down.</span>
+      </li>
+      <li>
+        <span class="font-medium">✔ Communicate early and often</span><br/>
+        <span class="text-muted-foreground">People accept "no" better than "I don't know what's happening."</span>
+      </li>
+      <li>
+        <span class="font-medium">✔ Execute fast and learn</span><br/>
+        <span class="text-muted-foreground">You can't analyze your way into certainty.</span>
+      </li>
+      <li>
+        <span class="font-medium">✔ Use frameworks to compare, not to predict ARR</span><br/>
+        <span class="text-muted-foreground">They help with clarity, not forecasting.</span>
+      </li>
+      <li>
+        <span class="font-medium">✔ RICE (+S) is the most balanced and reliable model</span><br/>
+        <span class="text-muted-foreground">It brings nuance without becoming impossible to maintain.</span>
+      </li>
+    </ul>
+
+    <p class="leading-relaxed">
+      If you want help tailoring a prioritization model to your team or want to dig deeper into how I use RICE + S in practice, feel free to connect.
+    </p>
   `
 };
