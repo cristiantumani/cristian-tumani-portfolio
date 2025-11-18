@@ -28,5 +28,14 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     slug: "power-of-starting-over-international-moves",
     categories: ["Expat Life", "Personal Growth", "Travel"]
+  },
+  {
+    id: "3",
+    title: "The Prioritization Frameworks That Actually Work (After Years of Trial, Error & Chaos)",
+    excerpt: "Everyone agrees prioritization is important… and absolutely no one agrees on how to do it. After years in Product, here are the frameworks that actually work without over-engineering or analysis paralysis.",
+    date: "November 18, 2025",
+    readTime: "7 min read",
+    slug: "prioritization-frameworks-that-actually-work",
+    categories: ["Product Strategy", "Roadmapping", "Leadership"]
   }
 ];
