@@ -287,6 +287,10 @@ export const blogContent: Record<string, string> = {
       So how do you turn all these conflicting needs into a clear plan without losing your mind?
     </p>
 
+    <p class="mb-6">
+      <em>This challenge sits at the heart of product roadmapping. If you're wrestling with balancing short-term revenue needs against long-term vision, check out my companion piece: <a href="https://cristiantumani.com/blog/balancing-now-and-next-product-roadmap" class="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer">Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision</a>.</em>
+    </p>
+
     <p class="mb-8">
       Let me break down what I've learned—after lots of prioritization sessions, debates, and the occasional "Why isn't this on the roadmap?!" Slack message.
     </p>
@@ -361,8 +365,12 @@ export const blogContent: Record<string, string> = {
       The real danger is spending months planning, debating, analyzing… and then executing slowly or poorly.
     </p>
 
-    <p class="mb-8 font-medium">
+    <p class="mb-6 font-medium">
       A decent idea shipped fast teaches you more than a "perfect" plan stuck in analysis paralysis.
+    </p>
+
+    <p class="mb-8">
+      <em>Speed matters, but so does strategic direction. Learn how to balance rapid execution with long-term vision in <a href="https://cristiantumani.com/blog/balancing-now-and-next-product-roadmap" class="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer">Balancing the Now and the Next</a>.</em>
     </p>
 
     <h2 class="text-3xl font-bold mt-12 mb-4">4. Prioritization Frameworks Won't Tell You ARR (and They Shouldn't)</h2>
