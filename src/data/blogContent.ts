@@ -493,5 +493,166 @@ export const blogContent: Record<string, string> = {
     <p class="leading-relaxed">
       If you want help tailoring a prioritization model to your team or want to dig deeper into how I use RICE + S in practice, feel free to connect.
     </p>
+  `,
+
+  "hidden-cost-of-forgotten-decisions": `
+    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+      Every product team has had this moment:
+    </p>
+
+    <p class="mb-6">
+      You're in a meeting, debating whether to build Feature X one way or another. Thirty minutes in, someone says: "Wait, didn't we already decide this?"
+    </p>
+
+    <p class="mb-6">
+      Silence. Blank stares. Someone vaguely remembers a Slack thread. Another thinks it was in a Google Doc somewhere. A third is certain it came up during quarterly planning.
+    </p>
+
+    <p class="mb-6">
+      Nobody can find it. So you spend another hour re-debating something you already resolved months ago.
+    </p>
+
+    <p class="mb-8 font-medium">
+      Sound familiar? This is the hidden cost of forgotten decisions.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Numbers Are Staggering</h2>
+
+    <p class="mb-6">
+      Let's put some data behind what we intuitively know:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li><strong>71%</strong> of senior managers say meetings are unproductive and inefficient (Harvard Business Review)</li>
+      <li>Organizations lose <strong>$37 billion annually</strong> in the US alone due to unproductive meetings (Doodle)</li>
+      <li>The average employee spends <strong>31 hours per month</strong> in meetings — and 50% of that time is considered wasted</li>
+      <li>Poor operational decision-making costs companies upward of <strong>3% of profits</strong> (Gartner)</li>
+      <li>Companies lose an average of <strong>$15 million per year</strong> due to decisions made on poor quality or missing information (Gartner)</li>
+    </ul>
+
+    <p class="mb-8">
+      Now think about how much of that waste comes from re-discussing decisions that were already made but nobody can find.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Problem Isn't Making Decisions</h2>
+
+    <p class="mb-6">
+      Here's the thing — product teams are generally good at making decisions. We debate, we weigh tradeoffs, we commit to a path forward.
+    </p>
+
+    <p class="mb-6">
+      The problem is what happens after.
+    </p>
+
+    <p class="mb-4">
+      Decisions get made in:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>Slack threads that scroll into oblivion</li>
+      <li>Meeting notes that nobody revisits</li>
+      <li>Google Docs buried three folders deep</li>
+      <li>Verbal agreements that never got written down</li>
+      <li>Jira comments attached to tickets that closed months ago</li>
+    </ul>
+
+    <p class="mb-8">
+      Within weeks, that well-reasoned decision becomes fog. It happened, but nobody can prove it or explain the reasoning behind it.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Real Costs</h2>
+
+    <p class="mb-6">
+      This isn't just annoying. Forgotten decisions create compounding damage:
+    </p>
+
+    <ul class="list-disc pl-6 mb-8 space-y-4">
+      <li><strong>Wasted time.</strong> If your team has just 2 "didn't we already decide this?" moments per week, at 30 minutes each, that's 52 hours per year — per team. For a company with 10 product teams, that's 520 hours annually spent re-debating settled questions.</li>
+      <li><strong>Contradictory choices.</strong> Without visibility into past decisions, teams make new ones that directly conflict with old ones. "We're going mobile-first" gets forgotten, and six months later someone commits to a desktop-first approach. Now you have two workstreams pulling in opposite directions.</li>
+      <li><strong>Lost context.</strong> Even when you do find an old decision, the reasoning is gone. You know what was decided, but not why. So you can't tell if the original logic still applies or if circumstances have changed enough to warrant revisiting it.</li>
+      <li><strong>Slower onboarding.</strong> New team members have no way to understand why things are the way they are. Every architectural choice, every product direction — it's all tribal knowledge locked in people's heads. Studies show it takes 8-12 months for new hires to reach full productivity. Poor decision visibility extends that timeline.</li>
+      <li><strong>Eroded trust.</strong> When decisions keep getting revisited, people stop believing any decision is final. Commitment weakens. "Let's just wait and see" becomes the default mode. Teams that can't commit can't ship.</li>
+    </ul>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Opportunity Cost</h2>
+
+    <p class="mb-6">
+      Now flip the script. Imagine if your team could:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>Instantly find any past decision and its context</li>
+      <li>See when new decisions might conflict with existing ones</li>
+      <li>Onboard new team members with full decision history</li>
+      <li>Stop wasting hours in redundant debates</li>
+    </ul>
+
+    <p class="mb-6">
+      If reclaiming even 10% of that wasted meeting time, you're looking at:
+    </p>
+
+    <ul class="list-disc pl-6 mb-8 space-y-2">
+      <li><strong>3+ hours per employee per month</strong> back for actual work</li>
+      <li><strong>Faster shipping</strong> because decisions stick</li>
+      <li><strong>Higher team morale</strong> because people feel heard and progress feels real</li>
+    </ul>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">How Teams Try to Solve This</h2>
+
+    <p class="mb-4">
+      Most teams recognize the problem and give it a shot:
+    </p>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li><strong>Notion/Confluence wikis</strong> — "Let's document everything!" Great in theory, abandoned within weeks.</li>
+      <li><strong>Meeting notes</strong> — Decisions get buried in pages of discussion about lunch orders and off-topic tangents.</li>
+      <li><strong>Slack channels</strong> — #decisions channels that become ghost towns.</li>
+      <li><strong>ADRs (Architecture Decision Records)</strong> — Solid for big technical decisions, way too heavy for everyday product choices.</li>
+    </ul>
+
+    <p class="mb-8">
+      These solutions share a common flaw: they require extra work at the exact moment when everyone just wants to move on and start building.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">What Would Better Look Like?</h2>
+
+    <p class="mb-6">
+      Imagine if every decision your team made was:
+    </p>
+
+    <ul class="list-disc pl-6 mb-8 space-y-2">
+      <li>Captured at the moment it happens, without friction</li>
+      <li>Searchable by topic, project, or timeframe</li>
+      <li>Visible to anyone who needs context</li>
+      <li>Connected to the discussion that led to it</li>
+      <li>Flagged when a new decision might contradict an old one</li>
+    </ul>
+
+    <p class="mb-8">
+      This isn't about bureaucracy or documentation theater. It's about turning your past decisions into an asset instead of a liability.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">I'm Building Something</h2>
+
+    <p class="mb-6">
+      I'll be honest with you — this problem has been bugging me for a while. I've lived it across multiple teams and companies. The "didn't we already decide this?" moment one too many times.
+    </p>
+
+    <p class="mb-8">
+      So I'm working on a solution. It's still early, but the goal is simple: make decision tracking effortless and actually useful.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">Before I Go Too Far Down the Rabbit Hole, I Need Your Help</h2>
+
+    <ul class="list-disc pl-6 mb-8 space-y-2">
+      <li>How does your team track decisions today?</li>
+      <li>What have you tried that didn't stick?</li>
+      <li>What's the most painful part of this problem for you?</li>
+      <li>How much time do you estimate your team wastes on re-discussing past decisions?</li>
+    </ul>
+
+    <p class="leading-relaxed font-medium">
+      Your feedback will directly shape what I'm building. Drop a comment, reply to this post, or reach out directly — I'm genuinely all ears. The more I understand the real pain points, the better the solution will be.
+    </p>
   `
 };
