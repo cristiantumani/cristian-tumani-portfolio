@@ -12,6 +12,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "4",
+    title: "The Hidden Cost of Forgotten Decisions",
+    excerpt: "Every product team has had this moment: You're debating a feature, and someone says 'Wait, didn't we already decide this?' Nobody can find it. So you spend another hour re-debating something you already resolved months ago.",
+    date: "December 12, 2025",
+    readTime: "5 min read",
+    slug: "hidden-cost-of-forgotten-decisions",
+    categories: ["Product Ops", "Leadership"]
+  },
+  {
     id: "1",
     title: "Balancing the Now and the Next: Building a Product Roadmap That Serves Both Revenue and Vision",
     excerpt: "In B2B SaaS, your product roadmap is more than a list of features — it's the strategic narrative of where your company is going and why. Learn how to balance short-term revenue targets with long-term product vision.",
