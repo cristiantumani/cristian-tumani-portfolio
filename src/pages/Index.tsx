@@ -13,30 +13,35 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Cristian Tumani",
-    "jobTitle": "Product Lead",
-    "description": "Experienced Product Lead with international experience. Building products from 0 to launch across Chile, Amsterdam, and Barcelona. AI Product Manager",
-    "url": "https://www.cristiantumanipq.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/cristiantumanipq"
+    name: "Cristian Tumani",
+    jobTitle: "Product Lead",
+    description:
+      "Experienced Product Lead with international experience. Building products from 0 to launch across Chile, Amsterdam, and Barcelona. AI Product Manager",
+    url: "https://www.cristiantumanipq.com",
+    sameAs: ["https://www.linkedin.com/in/cristiantumanipq"],
+    knowsAbout: [
+      "Product Management",
+      "Product Strategy",
+      "AI Products",
+      "Roadmapping",
+      "Leadership",
+      "AI Tools",
+      "Product Lifecycle",
     ],
-    "knowsAbout": ["Product Management", "Product Strategy", "AI Products", "Roadmapping", "Leadership"],
-    "workLocation": {
+    workLocation: {
       "@type": "Place",
-      "address": {
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": "Barcelona",
-        "addressCountry": "ES"
-      }
-    }
+        addressLocality: "Barcelona",
+        addressCountry: "ES",
+      },
+    },
   };
 
   return (
     <div className="min-h-screen">
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
       <Navigation />
       <HeroSection />
