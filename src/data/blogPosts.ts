@@ -12,6 +12,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "5",
+    title: "My 2025 in AI: A Year of Building, Breaking, and Learning",
+    excerpt: "I've been deep in AI tools for about a year now. Not just chatting with them — actually building things. From bolt.new to Lovable, n8n to Claude Code, here's what that journey looked like.",
+    date: "January 3, 2026",
+    readTime: "5 min read",
+    slug: "my-2025-in-ai-building-breaking-learning",
+    categories: ["AI", "Personal Growth", "Product Ops"]
+  },
+  {
     id: "4",
     title: "The Hidden Cost of Forgotten Decisions",
     excerpt: "Every product team has had this moment: You're debating a feature, and someone says 'Wait, didn't we already decide this?' Nobody can find it. So you spend another hour re-debating something you already resolved months ago.",

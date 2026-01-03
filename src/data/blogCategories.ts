@@ -1,4 +1,5 @@
 export type CategoryType = 
+  | "AI"
   | "Product Strategy"
   | "Roadmapping"
   | "Product Ops"
@@ -20,6 +21,12 @@ export interface CategoryConfig {
 }
 
 export const categoryConfigs: Record<CategoryType, CategoryConfig> = {
+  "AI": {
+    name: "AI",
+    bgColor: "bg-indigo-100 dark:bg-indigo-900/30",
+    textColor: "text-indigo-700 dark:text-indigo-300",
+    hoverBgColor: "hover:bg-indigo-200 dark:hover:bg-indigo-900/50"
+  },
   "Product Strategy": {
     name: "Product Strategy",
     bgColor: "bg-blue-100 dark:bg-blue-900/30",

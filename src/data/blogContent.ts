@@ -654,5 +654,96 @@ export const blogContent: Record<string, string> = {
     <p class="leading-relaxed font-medium">
       Your feedback will directly shape what I'm building. Drop a comment, reply to this post, or reach out directly — I'm genuinely all ears. The more I understand the real pain points, the better the solution will be.
     </p>
+  `,
+  "my-2025-in-ai-building-breaking-learning": `
+    <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+      I've been deep in AI tools for about a year now. Not just chatting with them — actually building things. Here's what that journey looked like.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Eye-Opener</h2>
+
+    <p class="mb-6">
+      It started with bolt.new. I had a personal problem — tracking my finances in a way that actually made sense to me — and decided to try building a solution myself.
+    </p>
+
+    <p class="mb-6">
+      A few hours later, Opsia.io existed. A working product. Built by me. No developers, no dependencies, no waiting.
+    </p>
+
+    <p class="mb-8">
+      That moment changed how I see product development. The gap between idea and reality had collapsed. I could solve a real problem, make it work exactly how I wanted, and if I ever chose to, even monetize it. But 2025 wasn't about monetization — it was about learning.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">Testing the Alternatives</h2>
+
+    <p class="mb-6">
+      If I tried bolt.new, I obviously had to try Lovable too. The experience was similar but slightly better — easier setup, faster interactions, beautiful designs out of the box.
+    </p>
+
+    <p class="mb-8">
+      One thing to watch though: after building a few products, they all started looking the same. AI tends to default to similar patterns. Lesson learned — don't let AI make all the design decisions or everything ends up feeling generic.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Automation Rabbit Hole</h2>
+
+    <p class="mb-6">
+      Another eye-opener was n8n for automated workflows. The node-based visual approach makes it incredibly intuitive. Drag, connect, done. The integrations cover almost everything you'd need.
+    </p>
+
+    <p class="mb-8">
+      It can get complex, but nothing that Claude or ChatGPT can't help you set up. I went from zero automation knowledge to building useful workflows in days.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">Late Nights with Claude Code</h2>
+
+    <p class="mb-6">
+      Lately I've been deep into Claude Code, and honestly? It's addictive.
+    </p>
+
+    <p class="mb-6">
+      I never thought interacting with a terminal could be this fun. The power, the speed, the way it just gets things done — I've caught myself building late into the night, having to remind myself that I have three kids who need their dad functional the next morning, and a job that requires me to actually perform.
+    </p>
+
+    <p class="mb-8">
+      I'm now building something with Claude Code that I'll actually try to monetize. First real attempt at creating something fully AI-assisted with commercial intent. The journey will be long, but it depends on no one but me and AI.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">The Rest of My Stack</h2>
+
+    <p class="mb-4">
+      Beyond the building tools, here's what else became part of my daily workflow this year:
+    </p>
+
+    <h3 class="text-xl font-semibold mt-8 mb-3">For thinking and creating:</h3>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>Claude, ChatGPT, and Gemini as the core companions.</li>
+      <li>Gamma for presentations — the interactivity is unreal.</li>
+      <li>Magic Patterns for early designs that I then feed into other tools.</li>
+      <li>Canva for logos and quick visuals.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mt-8 mb-3">For work:</h3>
+
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li>ChatPRD for product documentation.</li>
+      <li>Granola for note-taking.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mt-8 mb-3">Still figuring out:</h3>
+
+    <p class="mb-8">
+      Cursor. It's been love-hate so far, but I've only gone deep this past month. More to explore.
+    </p>
+
+    <h2 class="text-3xl font-bold mt-12 mb-4">What's Next</h2>
+
+    <p class="mb-6">
+      This was just the overview. I'll be sharing deeper dives on each tool — what works, what doesn't, and how to get the most out of them.
+    </p>
+
+    <p class="leading-relaxed font-medium">
+      But I'm curious: how are you riding the AI wave? What have you built or explored? I'd love to hear your experience.
+    </p>
   `
 };
