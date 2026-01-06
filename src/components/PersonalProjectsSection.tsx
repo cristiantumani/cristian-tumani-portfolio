@@ -183,10 +183,10 @@ const PersonalProjectsSection = () => {
               </div>
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 items-start mt-auto">
+              <div className="flex flex-col sm:flex-row gap-3 items-start mt-auto">
                 <Button 
                   asChild
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   <a 
                     href="https://Opsia.io" 
@@ -194,18 +194,26 @@ const PersonalProjectsSection = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2"
                   >
-                    👉 Try Opsia.io
+                    View Project
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </Button>
                 
-                <button
-                  onClick={scrollToContact}
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 group"
+                <Button 
+                  asChild
+                  variant="outline"
+                  className="px-5 py-2.5 rounded-lg font-medium"
                 >
-                  <MessageCircle className="w-4 h-4 group-hover:animate-float" />
-                  Share feedback
-                </button>
+                  <a 
+                    href="https://github.com/cristiantumani/finance.bold.new" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </Button>
               </div>
               
             </div>
