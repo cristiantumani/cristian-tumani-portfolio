@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Linkedin, Send, Target, Route, Cog, Globe, MapPin } from "lucide-react";
+import { Mail, Linkedin, Send, Target, Route, Cog, Bot, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -85,9 +85,9 @@ const ContactSection = () => {
       description: "Improving processes, tools, and collaboration to help teams ship faster and with less friction."
     },
     {
-      icon: Globe,
-      title: "Global Experience",
-      description: "Bringing cross-cultural insights and global perspective to products and teams."
+      icon: Bot,
+      title: "AI Products",
+      description: "Building with cutting-edge AI tools like Claude Code, Cursor, n8n, Gamma, OpenAI, and more."
     }
   ];
 
