@@ -52,8 +52,8 @@ const HeroSection = () => {
             </div>
 
             <p className="font-body text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-              Adaptable leader with 13+ years building digital products across three countries. Passionate about
-              transforming ideas into impactful solutions that scale globally.
+              Experienced AI Product Manager with 13+ years building digital products across three countries. 
+              Actively building AI-powered products and passionate about transforming ideas into impactful solutions that scale globally.
             </p>
 
             {/* Stats section */}
