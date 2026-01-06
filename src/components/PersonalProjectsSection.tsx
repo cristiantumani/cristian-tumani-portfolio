@@ -230,6 +230,24 @@ const PersonalProjectsSection = () => {
             </div>
 
           </div>
+
+          {/* Call to Action */}
+          <div className="mt-16 text-center animate-fade-in">
+            <div className="bg-card-gradient p-8 rounded-2xl border border-border/50 max-w-2xl mx-auto">
+              <h3 className="font-heading font-bold text-2xl text-foreground mb-3">
+                Have a great idea but not sure how to build it?
+              </h3>
+              <p className="font-body text-muted-foreground mb-6">
+                I love helping turn ideas into reality. Let's chat about your project!
+              </p>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200"
+              >
+                Let's Talk
+              </Button>
+            </div>
+          </div>
           
         </div>
       </div>
