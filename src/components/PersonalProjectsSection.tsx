@@ -107,7 +107,7 @@ const PersonalProjectsSection = () => {
               <div className="flex flex-col sm:flex-row gap-3 items-start mt-auto">
                 <Button 
                   asChild
-                  className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] hover:from-[#5558e3] hover:to-[#7c4fe8] text-white px-5 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
                 >
                   <a 
                     href="https://corteza.app/" 
