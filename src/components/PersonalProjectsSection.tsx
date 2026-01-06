@@ -158,10 +158,21 @@ const PersonalProjectsSection = () => {
               </div>
               
               {/* Project Description */}
-              <p className="font-body text-foreground leading-relaxed mb-6 flex-grow">
+              <p className="font-body text-foreground leading-relaxed mb-4 flex-grow">
                 Opsia.io is a simple AI-powered app that helps families track expenses effortlessly. 
                 I built it to make personal finance more accessible and intuitive.
               </p>
+
+              {/* Key Features */}
+              <div className="mb-6">
+                <h4 className="font-heading font-semibold text-foreground mb-2 text-sm">Key Features</h4>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Advanced reporting - track budget and spending trends</li>
+                  <li>• Bulk add via CSV or XLSX</li>
+                  <li>• Add expenses directly from Slack messages</li>
+                  <li>• Weekly digest with financial summary</li>
+                </ul>
+              </div>
               
               {/* Tech Stack */}
               <div className="mb-6">
