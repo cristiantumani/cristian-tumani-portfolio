@@ -63,7 +63,7 @@ const ExperienceSection = () => {
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="font-heading font-bold text-4xl text-foreground mb-4">
-              Experience
+              Professional Experience
             </h2>
             <div className="w-24 h-1 bg-hero-gradient mx-auto mb-6"></div>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
