@@ -172,7 +172,7 @@ const PersonalProjectsSection = () => {
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>• Advanced reporting - track budget and spending trends</li>
                   <li>• Bulk add via CSV or XLSX</li>
-                  <li>• Add expenses directly from Slack messages</li>
+                  <li>• Add expenses directly from WhatsApp messages</li>
                   <li>• Weekly digest with financial summary</li>
                 </ul>
               </div>
