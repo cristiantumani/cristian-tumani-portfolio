@@ -76,7 +76,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
               <button
                 onClick={() =>
                   document.getElementById("contact")?.scrollIntoView({
@@ -86,6 +86,17 @@ const HeroSection = () => {
                 className="bg-hero-gradient text-primary-foreground font-body font-medium px-8 py-3 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-105"
               >
                 Let's Connect
+              </button>
+
+              <button
+                onClick={() =>
+                  document.getElementById("personal-projects")?.scrollIntoView({
+                    behavior: "smooth",
+                  })
+                }
+                className="border border-border bg-card/80 backdrop-blur-sm text-foreground font-body font-medium px-8 py-3 rounded-lg hover:bg-secondary transition-all duration-300"
+              >
+                AI Projects
               </button>
 
               <button
