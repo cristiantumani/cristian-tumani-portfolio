@@ -1,8 +1,5 @@
 import { ExternalLink, MessageCircle, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import boltLogo from "@/assets/bolt-logo.png";
-import chatgptLogo from "@/assets/chatgpt-logo.png";
-import supabaseLogo from "@/assets/supabase-logo.png";
 
 const PersonalProjectsSection = () => {
   const scrollToContact = () => {
@@ -95,10 +92,16 @@ const PersonalProjectsSection = () => {
                     <span className="text-muted-foreground text-xs font-medium">Slack Bolt</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
-                    <span className="text-muted-foreground text-xs font-medium">Claude API</span>
+                    <span className="text-muted-foreground text-xs font-medium">Claude Code</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
                     <span className="text-muted-foreground text-xs font-medium">OpenAI</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">n8n</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Railway</span>
                   </div>
                 </div>
               </div>
@@ -177,18 +180,27 @@ const PersonalProjectsSection = () => {
               {/* Tech Stack */}
               <div className="mb-6">
                 <h4 className="font-heading font-semibold text-foreground mb-3 text-sm">Built with AI Tools</h4>
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-lg">
-                    <img src={boltLogo} alt="Bolt.new" className="w-5 h-5" />
-                    <span className="text-muted-foreground text-sm font-medium">Bolt.new</span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Bolt.new</span>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-lg">
-                    <img src={chatgptLogo} alt="ChatGPT" className="w-5 h-5 rounded-full" />
-                    <span className="text-muted-foreground text-sm font-medium">ChatGPT</span>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">ChatGPT</span>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-lg">
-                    <img src={supabaseLogo} alt="Supabase" className="w-5 h-5" />
-                    <span className="text-muted-foreground text-sm font-medium">Supabase</span>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Supabase</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Vercel</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Claude Code</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">n8n</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-2 py-1.5 bg-muted rounded-lg">
+                    <span className="text-muted-foreground text-xs font-medium">Cloudflare</span>
                   </div>
                 </div>
               </div>
