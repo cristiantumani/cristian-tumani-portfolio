@@ -1,4 +1,5 @@
 import { Building2, Plane, ShoppingBag, Rocket } from "lucide-react";
+import { MotionDiv, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 const ExperienceSection = () => {
   const experiences = [
@@ -56,76 +57,75 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-section-gradient">
+    <section id="experience" className="py-24 relative">
+      <div className="absolute top-0 left-0 right-0 section-divider" />
+      
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-heading font-bold text-4xl text-foreground mb-4">
-              Professional Experience
+          <MotionDiv className="text-center mb-16">
+            <h2 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-4">
+              Experience
             </h2>
-            <div className="w-24 h-1 bg-hero-gradient mx-auto mb-6"></div>
             <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
               A journey through diverse industries and markets, building products that matter
             </p>
-          </div>
+          </MotionDiv>
           
           {/* Timeline */}
-          <div className="space-y-8">
+          <StaggerContainer className="space-y-6" staggerDelay={0.15}>
             {experiences.map((exp, index) => (
-              <div 
-                key={index} 
-                className="bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 p-8 animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="flex flex-col md:flex-row gap-6">
-                  
-                  {/* Icon & Timeline */}
-                  <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-2">
-                    <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <exp.icon className="w-8 h-8 text-primary" />
+              <StaggerItem key={index}>
+                <div className="glass-card rounded-2xl p-8 border-glow group transition-all duration-300">
+                  <div className="flex flex-col md:flex-row gap-6">
+                    
+                    {/* Icon */}
+                    <div className="flex md:flex-col items-center md:items-start gap-4 md:gap-2">
+                      <div className="bg-secondary w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/80 transition-colors">
+                        <exp.icon className="w-7 h-7 text-foreground" />
+                      </div>
+                      <div className="hidden md:block w-px h-16 bg-border mx-auto mt-4"></div>
                     </div>
-                    <div className="hidden md:block w-px h-16 bg-border mx-auto mt-4"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                      <div>
-                        <h3 className="font-heading font-bold text-xl text-foreground mb-1">
-                          {exp.role}
-                        </h3>
-                        <div className="font-body font-semibold text-primary mb-2">
-                          {exp.company}
+                    
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                        <div>
+                          <h3 className="font-heading font-bold text-xl text-foreground mb-1">
+                            {exp.role}
+                          </h3>
+                          <div className="font-body font-medium text-foreground/80 mb-2">
+                            {exp.company}
+                          </div>
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          <div>{exp.period}</div>
+                          <div className="text-muted-foreground/70">{exp.location}</div>
                         </div>
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                        <div>{exp.period}</div>
-                        <div>{exp.location}</div>
+                      
+                      <p className="font-body text-foreground/70 leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+                      
+                      <div className="space-y-2">
+                        {exp.achievements.map((achievement, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-foreground/50 mt-2 flex-shrink-0"></div>
+                            <span className="font-body text-sm text-muted-foreground">
+                              {achievement}
+                            </span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                     
-                    <p className="font-body text-foreground leading-relaxed mb-4">
-                      {exp.description}
-                    </p>
-                    
-                    <div className="space-y-2">
-                      {exp.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></div>
-                          <span className="font-body text-sm text-muted-foreground">
-                            {achievement}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
                   </div>
-                  
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>
