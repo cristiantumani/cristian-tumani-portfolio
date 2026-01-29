@@ -3,6 +3,7 @@ import CortezaBanner from "@/components/CortezaBanner";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import SkillsSection from "@/components/SkillsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import PersonalProjectsSection from "@/components/PersonalProjectsSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -48,6 +49,7 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <AboutSection />
+      <SkillsSection />
       <PersonalProjectsSection />
       <BlogSection />
       <ExperienceSection />

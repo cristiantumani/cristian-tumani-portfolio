@@ -168,6 +168,17 @@
     @apply opacity-100;
   }
 
+  /* Skill card hover - border brightens */
+  .skill-card-hover {
+    @apply border border-border;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill-card-hover:hover {
+    border-color: hsla(0, 0%, 100%, 0.15);
+    box-shadow: var(--shadow-card-hover);
+  }
+
   /* Hero radial glow */
   .hero-glow {
     @apply absolute inset-0 pointer-events-none;
