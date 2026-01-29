@@ -8,47 +8,57 @@
 
 @layer base {
   :root {
-    /* Dark mode by default - #0a0a0a base */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Premium Dark Mode - Deep Charcoal Base (#09090b) */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    /* Layered surfaces - slightly lighter for depth */
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 6% 10%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 4%;
+    /* Primary - slightly desaturated for sophistication */
+    --primary: 0 0% 100%;
+    --primary-foreground: 240 10% 3.9%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary surfaces */
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
+    /* Muted elements - Zinc-400 inspired (#a1a1aa) */
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 0 0% 16%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent with subtle warmth */
+    --accent: 240 5% 18%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
+    /* Destructive - desaturated */
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 12%;
-    --ring: 0 0% 40%;
+    /* Borders - subtle white/10 */
+    --border: 240 5% 18%;
+    --input: 240 5% 14%;
+    --ring: 240 5% 50%;
 
     /* Premium gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 80%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 8%), hsl(0 0% 6%));
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 6%));
-    --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, hsla(0 0% 100% / 0.08), transparent);
-    --gradient-button: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 85%));
+    --gradient-card: linear-gradient(145deg, hsl(240 6% 12%), hsl(240 6% 10%));
+    --gradient-section: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 6% 6%));
+    --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, hsla(0 0% 100% / 0.06), transparent);
+    --gradient-button: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 90%));
+    
+    /* Hero glow effect */
+    --gradient-hero-glow: radial-gradient(ellipse 600px 400px at 80% 20%, hsla(240 10% 50% / 0.15), transparent);
     
     /* Premium shadows */
-    --shadow-card: 0 1px 2px hsla(0 0% 0% / 0.4), 0 0 0 1px hsla(0 0% 100% / 0.05);
-    --shadow-card-hover: 0 4px 12px hsla(0 0% 0% / 0.5), 0 0 0 1px hsla(0 0% 100% / 0.1);
-    --shadow-hero: 0 0 60px hsla(0 0% 100% / 0.1);
-    --shadow-glow: 0 0 40px hsla(0 0% 100% / 0.15);
+    --shadow-card: 0 0 0 1px hsla(0 0% 100% / 0.06);
+    --shadow-card-hover: 0 0 0 1px hsla(0 0% 100% / 0.1), 0 8px 24px hsla(0 0% 0% / 0.4);
+    --shadow-hero: 0 0 80px hsla(240 10% 50% / 0.15);
+    --shadow-glow: 0 0 60px hsla(240 10% 50% / 0.2);
     
     /* Typography */
     --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
@@ -56,14 +66,14 @@
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 14%;
-    --sidebar-ring: 0 0% 40%;
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 5% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 5% 18%;
+    --sidebar-ring: 240 5% 50%;
   }
 }
 
@@ -92,14 +102,23 @@
 }
 
 @layer components {
-  /* Glassmorphism card style */
+  /* Premium Glassmorphism card style */
   .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+    @apply bg-card backdrop-blur-md border border-border;
     box-shadow: var(--shadow-card);
+    background: linear-gradient(145deg, hsl(240 6% 11%), hsl(240 6% 9%));
   }
 
   .glass-card:hover {
     box-shadow: var(--shadow-card-hover);
+    border-color: hsla(0, 0%, 100%, 0.12);
+  }
+
+  /* Glassmorphism navigation */
+  .glass-nav {
+    @apply backdrop-blur-md border-b;
+    background: hsla(240, 10%, 4%, 0.8);
+    border-color: hsla(0, 0%, 100%, 0.08);
   }
 
   /* Glow button effect */
@@ -120,13 +139,13 @@
   /* Gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%));
+    background-image: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 75%));
   }
 
   /* Section divider line */
   .section-divider {
     @apply h-px w-full;
-    background: linear-gradient(90deg, transparent, hsl(0 0% 20%), transparent);
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.08), transparent);
   }
 
   /* Bento grid base */
@@ -142,11 +161,27 @@
   .border-glow::after {
     content: '';
     @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 pointer-events-none;
-    background: linear-gradient(135deg, hsla(0 0% 100% / 0.1), transparent);
+    background: linear-gradient(135deg, hsla(0 0% 100% / 0.05), transparent);
   }
 
   .border-glow:hover::after {
     @apply opacity-100;
+  }
+
+  /* Hero radial glow */
+  .hero-glow {
+    @apply absolute inset-0 pointer-events-none;
+    background: var(--gradient-hero-glow);
+  }
+
+  /* Link hover effect */
+  .link-hover {
+    @apply transition-all duration-200;
+  }
+
+  .link-hover:hover {
+    @apply text-foreground;
+    text-shadow: 0 0 20px hsla(0, 0%, 100%, 0.3);
   }
 }
 
