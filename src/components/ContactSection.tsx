@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Mail, Linkedin, Send, Target, Route, Cog, Bot, MapPin } from "lucide-react";
+import { Mail, Linkedin, Send, Target, Route, Cog, Bot, MapPin, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { MotionDiv, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +45,6 @@ const ContactSection = () => {
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       
-      // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
       
     } catch (error: unknown) {
@@ -92,67 +91,62 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-section-gradient">
+    <section id="contact" className="py-24 relative">
+      <div className="absolute top-0 left-0 right-0 section-divider" />
+      
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in">
+          <MotionDiv className="text-center mb-16">
             <h2 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-4">
               Let's Build Something Together
             </h2>
-            <div className="w-24 h-1 bg-hero-gradient mx-auto mb-6"></div>
-            <p className="font-body text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="font-body text-lg text-muted-foreground max-w-3xl mx-auto">
               Here's how I can support your company:
             </p>
-          </div>
+          </MotionDiv>
           
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {services.map((service, index) => {
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16" staggerDelay={0.1}>
+            {services.map((service) => {
               const IconComponent = service.icon;
               return (
-                <Card 
-                  key={service.title}
-                  className="hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02] animate-fade-in border-border/50"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardHeader className="text-center pb-4">
-                    <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-8 h-8 text-primary" />
+                <StaggerItem key={service.title}>
+                  <div className="glass-card rounded-2xl p-6 h-full border-glow group transition-all duration-300 text-center">
+                    <div className="bg-secondary w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/80 transition-colors">
+                      <IconComponent className="w-7 h-7 text-foreground" />
                     </div>
-                    <CardTitle className="font-heading text-xl text-foreground">
+                    <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
                       {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <CardDescription className="font-body text-muted-foreground text-center leading-relaxed">
+                    </h3>
+                    <p className="font-body text-sm text-muted-foreground leading-relaxed">
                       {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                    </p>
+                  </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
 
           {/* Contact Form and Info Section */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             
             {/* Contact Info */}
-            <div className="animate-slide-in-left">
+            <MotionDiv delay={0.2}>
               <h3 className="font-heading font-bold text-2xl text-foreground mb-6">
                 Get in Touch
               </h3>
               
-              <p className="font-body text-foreground leading-relaxed mb-8">
+              <p className="font-body text-foreground/80 leading-relaxed mb-8">
                 Whether you're looking for product strategy consultation, team leadership, 
                 or just want to discuss the latest in product management, I'd love to hear from you.
               </p>
               
-              <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-card rounded-lg">
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
+              <div className="space-y-4">
+                <div className="glass-card rounded-xl p-4 flex items-center gap-4">
+                  <div className="bg-secondary w-12 h-12 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <div className="font-body font-medium text-foreground">Based in</div>
@@ -162,14 +156,14 @@ const ContactSection = () => {
                 
                 <a 
                   href="mailto:cristiantumani@gmail.com"
-                  className="flex items-center gap-4 p-4 bg-card rounded-lg hover:shadow-card transition-all duration-300 group"
+                  className="glass-card rounded-xl p-4 flex items-center gap-4 group transition-all duration-300 hover:border-border/80"
                 >
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="bg-secondary w-12 h-12 rounded-xl flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
+                    <Mail className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <div className="font-body font-medium text-foreground">Email</div>
-                    <div className="font-body text-muted-foreground group-hover:text-primary transition-colors">
+                    <div className="font-body text-muted-foreground group-hover:text-foreground transition-colors">
                       cristiantumani@gmail.com
                     </div>
                   </div>
@@ -179,27 +173,27 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/cristian-tumani-37690023/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-card rounded-lg hover:shadow-card transition-all duration-300 group"
+                  className="glass-card rounded-xl p-4 flex items-center gap-4 group transition-all duration-300 hover:border-border/80"
                 >
-                  <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Linkedin className="w-5 h-5 text-primary" />
+                  <div className="bg-secondary w-12 h-12 rounded-xl flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
+                    <Linkedin className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <div className="font-body font-medium text-foreground">LinkedIn</div>
-                    <div className="font-body text-muted-foreground group-hover:text-primary transition-colors">
+                    <div className="font-body text-muted-foreground group-hover:text-foreground transition-colors">
                       Connect with me
                     </div>
                   </div>
                 </a>
               </div>
-            </div>
+            </MotionDiv>
             
             {/* Contact Form */}
-            <div className="animate-fade-in">
-              <form onSubmit={handleSubmit} className="bg-card p-8 rounded-xl shadow-card space-y-6">
+            <MotionDiv delay={0.3}>
+              <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block font-body font-medium text-foreground mb-2">
+                    <label htmlFor="name" className="block font-body font-medium text-foreground mb-2 text-sm">
                       Name
                     </label>
                     <input
@@ -209,13 +203,13 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/30 transition-all"
                       placeholder="Your name"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block font-body font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="block font-body font-medium text-foreground mb-2 text-sm">
                       Email
                     </label>
                     <input
@@ -225,14 +219,14 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/30 transition-all"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block font-body font-medium text-foreground mb-2">
+                  <label htmlFor="subject" className="block font-body font-medium text-foreground mb-2 text-sm">
                     Subject
                   </label>
                   <input
@@ -242,13 +236,13 @@ const ContactSection = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/30 transition-all"
                     placeholder="What would you like to discuss?"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block font-body font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="block font-body font-medium text-foreground mb-2 text-sm">
                     Message
                   </label>
                   <textarea
@@ -257,8 +251,8 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                    rows={5}
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-body text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20 focus:border-foreground/30 transition-all resize-none"
                     placeholder="Tell me about your project or question..."
                   />
                 </div>
@@ -266,19 +260,19 @@ const ContactSection = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-hero-gradient text-primary-foreground font-body font-medium px-6 py-4 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-foreground text-background font-body font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:bg-foreground/90 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </form>
-            </div>
+            </MotionDiv>
             
           </div>
 
           {/* Quick Contact CTA */}
-          <div className="text-center animate-fade-in">
-            <div className="bg-card p-6 rounded-2xl shadow-card max-w-xl mx-auto">
+          <MotionDiv delay={0.4} className="text-center">
+            <div className="glass-card p-8 rounded-2xl max-w-xl mx-auto">
               <h3 className="font-heading font-bold text-xl text-foreground mb-3">
                 Prefer a quick call?
               </h3>
@@ -288,13 +282,14 @@ const ContactSection = () => {
               
               <a
                 href="mailto:cristiantumani@gmail.com?subject=Let's%20Schedule%20a%20Call"
-                className="inline-flex items-center justify-center gap-2 bg-hero-gradient text-primary-foreground font-body font-medium px-6 py-3 rounded-lg shadow-hero hover:shadow-card-hover transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2 bg-foreground text-background font-body font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:bg-foreground/90 group"
               >
                 <Mail className="w-4 h-4" />
                 Schedule a Call
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-          </div>
+          </MotionDiv>
           
         </div>
       </div>
