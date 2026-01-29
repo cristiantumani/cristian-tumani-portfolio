@@ -9,19 +9,29 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
     >
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-radial from-white/[0.02] to-transparent rounded-full blur-3xl" />
-      </div>
+      {/* Premium radial glow - fixed position top-right */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 800px 600px at 85% 15%, hsla(250, 30%, 45%, 0.12), transparent 70%)'
+        }}
+      />
+      
+      {/* Secondary subtle glow - bottom left */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 600px 400px at 15% 85%, hsla(220, 30%, 40%, 0.08), transparent 70%)'
+        }}
+      />
 
       {/* Subtle grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.015]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px'
+          backgroundImage: `linear-gradient(hsla(0,0%,100%,0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, hsla(0,0%,100%,0.1) 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
         }}
       />
 
@@ -101,11 +111,11 @@ const HeroSection = () => {
                 onClick={() =>
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="group relative inline-flex items-center justify-center gap-2 bg-foreground text-background font-body font-medium px-8 py-4 rounded-xl transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex items-center justify-center gap-2 bg-foreground text-background font-body font-medium px-8 py-4 rounded-xl transition-all duration-300 overflow-hidden shadow-[0_0_30px_hsla(0,0%,100%,0.15)]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 Let's Connect
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>

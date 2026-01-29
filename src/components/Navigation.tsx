@@ -78,7 +78,7 @@ const Navigation = () => {
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
+          ? "glass-nav"
           : "bg-transparent"
       }`}
     >
@@ -99,10 +99,10 @@ const Navigation = () => {
               <motion.button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className={`relative font-body text-sm px-4 py-2 rounded-lg transition-colors duration-200 ${
+                className={`relative font-body text-sm px-4 py-2 rounded-lg transition-all duration-200 ${
                   (item.isRoute && location.pathname.startsWith("/blog")) || activeSection === item.id
                     ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
