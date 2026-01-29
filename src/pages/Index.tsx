@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import CortezaBanner from "@/components/CortezaBanner";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -43,6 +44,7 @@ const Index = () => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
+      <CortezaBanner />
       <Navigation />
       <HeroSection />
       <AboutSection />
