@@ -5,6 +5,19 @@ const ExperienceSection = () => {
   const experiences = [
     {
       icon: Rocket,
+      company: "Ninja Excel",
+      role: "Chief Executive Officer",
+      period: "2026 - Present",
+      location: "Remote",
+      description: "Leading Ninja Excel as CEO, bringing together 13+ years of business, strategy, and product experience to scale the company to the next level. Driving vision, growth, and execution across all functions.",
+      achievements: [
+        "Defining company strategy and long-term vision",
+        "Scaling product, growth, and operations with an AI-first mindset",
+        "Building and leading a high-performing executive team"
+      ]
+    },
+    {
+      icon: Rocket,
       company: "Lokalise",
       role: "Group Product Manager",
       period: "May 2022 - Present",

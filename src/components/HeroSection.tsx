@@ -55,7 +55,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="font-heading font-medium text-xl md:text-2xl text-muted-foreground mb-6"
             >
-              AI Product Lead · International Experience · From 0 to Launch
+              CEO at Ninja Excel · AI Product Executive · From 0 to Launch
             </motion.h2>
 
             <motion.p
