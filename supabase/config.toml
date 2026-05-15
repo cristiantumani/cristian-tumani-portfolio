@@ -1,4 +1,1 @@
 project_id = "hlbsxswffeogikqboskb"
-
-[functions.gsc-setup]
-verify_jwt = false
