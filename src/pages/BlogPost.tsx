@@ -60,11 +60,11 @@ const BlogPost = () => {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://www.cristiantumanipq.com/blog/${post.slug}`} />
-        <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/FePFgxlyshcWewd22L2pRJWTqnV2/social-images/social-1759054819766-Screenshot 2025-09-28 at 12.20.11.png" />
+        <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/FePFgxlyshcWewd22L2pRJWTqnV2/social-images/social-1759054819766-Screenshot%202025-09-28%20at%2012.20.11.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/FePFgxlyshcWewd22L2pRJWTqnV2/social-images/social-1759054819766-Screenshot 2025-09-28 at 12.20.11.png" />
+        <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/FePFgxlyshcWewd22L2pRJWTqnV2/social-images/social-1759054819766-Screenshot%202025-09-28%20at%2012.20.11.png" />
         <link rel="canonical" href={`https://www.cristiantumanipq.com/blog/${post.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
